@@ -1,4 +1,6 @@
-class NavBar extends React.Component {
+import React from 'react';
+
+export default function NavBar {
     render() {
         const links = props.links.map((link, index)=> (
             <li>

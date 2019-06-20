@@ -1,4 +1,6 @@
-class GetStarted extends React.Component {
+import React from 'react';
+
+export default function getStarted (
     render() {
         // const getStarted = this.props.getStarted;
 
@@ -11,9 +13,9 @@ class GetStarted extends React.Component {
            
         )
     }
-}
+)
 
-class HowTo extends React.Component {
+export default function HowTo  {
     render() {
         const stepOne = this.props.stepOne;
         const stepTwo = this.props.stepTwo;
@@ -30,7 +32,7 @@ class HowTo extends React.Component {
     }
 }
 
-class Header extends React.Component {
+export default function Header {
     render() {
         return (
             <header role="banner">
