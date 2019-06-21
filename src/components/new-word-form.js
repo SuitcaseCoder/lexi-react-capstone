@@ -1,6 +1,8 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 
+import './new-word-form.css';
+
 // export class NewWordForm extends React.Component {
     // onSubmit(values){
     //     console.log(values);

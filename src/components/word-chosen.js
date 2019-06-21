@@ -2,6 +2,8 @@ import React from 'react';
 
 import NavBar from './navbar';
 
+import './word-chose.css';
+
 export default function WordChosen() {
     return(
         <div>

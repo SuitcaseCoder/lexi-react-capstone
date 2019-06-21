@@ -1,4 +1,5 @@
 import React from 'react';
+import './how-to.css';
 
 export default function HowTo()  {
     // render() {

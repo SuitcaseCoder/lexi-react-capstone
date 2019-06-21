@@ -1,6 +1,8 @@
 import React from 'react';
 import NavBar from './navbar.js';
 import NewWordForm from './new-word-form';
+
+import './create-new-word.css';
 // import { NewWordForm } from './new-word-form.js';
 
 export default function CreateNewWord(){
@@ -10,9 +12,9 @@ export default function CreateNewWord(){
             <h1>also working</h1>
             <NavBar />
         </div>
-        <div>
+        <section>
             <NewWordForm />
-        </div>
+        </section>
         </div>
     );
 }

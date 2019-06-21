@@ -1,0 +1,27 @@
+
+.letter-section {
+    min-height: 200px;
+    padding: 6% 0;
+    max-width: 75%;
+    margin: 0 auto;
+  }
+  
+  .letter-section h2 {
+    border-bottom: 1.5px solid black;
+  }
+  
+  .letter-section ul li {
+    list-style-type: none;
+    padding: 5px 0;
+    word-wrap: break-word;
+  }
+  
+  .letter-section ul li a{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .letter-section ul li a:hover{
+    color: #aaa;
+  }
+  

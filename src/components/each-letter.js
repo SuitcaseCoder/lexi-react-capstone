@@ -3,6 +3,7 @@ import React from 'react';
 import NavBar from './navbar';
 import ExampleWord from './example-word';
 
+import './each-letter.css';
 
 export default function EachLetter() {
 

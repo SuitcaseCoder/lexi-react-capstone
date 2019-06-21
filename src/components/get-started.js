@@ -1,4 +1,5 @@
 import React from 'react';
+import './get-started.css';
 
 export default function getStarted() {
         return (

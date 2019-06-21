@@ -1,0 +1,13 @@
+.howItWorks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+  .howToSteps{
+    border: 2px solid aqua;
+    padding: 10px;
+    align-items: baseline;
+    min-width: 30%;
+  }
