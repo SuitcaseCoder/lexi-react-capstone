@@ -11,7 +11,8 @@ export default function EachLetter() {
         // how do I make this change by letter. so alphabetize it and display the correct letter? 
         
         <section class="letter-section" id="a">
-        <h2>
+        {/* // h2 has an example of using a 'prop' like 'text' */}
+        <h2 text=" ">
           {/* {letter}  */}
         </h2>
         <ul>
