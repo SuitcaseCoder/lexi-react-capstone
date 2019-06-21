@@ -1,5 +1,5 @@
 import {createStore} from 'redux'
 
-import {appReducer} from './reducers';
+import {wordsReducer} from './reducers';
 
-export default createStore(appReducer)
+export default createStore(wordsReducer)

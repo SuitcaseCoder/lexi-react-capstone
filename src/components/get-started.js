@@ -9,7 +9,7 @@ import './get-started.css';
 export default function getStarted() {
         return (
             <section class="getStarted">
-                <button id="getStarted" role="button">
+                <button id="getStarted">
                     Get started
                 </button>
             </section>  

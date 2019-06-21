@@ -61,9 +61,17 @@ const initialState = {
 
 //help.
 export const wordsReducer = (state=initialState, action) => {
-    if (action.type === actions.DO_SOME_THING) {
+    if (action.type === actions.ADD_WORD) {
+        return Object.assign({}, state, {
+            letterLists: [...state.letterLists, {
+                words: [...state.words, {
+                    word: action.word,
+                    definition: action.definition
+                }]
+            }]
+        })
         // do something
-        return newState;
+        // return newState;
     }
     else if (action.type === DO_SOME_THING_ELSE) {
         // do something else

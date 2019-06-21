@@ -9,5 +9,5 @@
     border: 2px solid aqua;
     padding: 10px;
     align-items: baseline;
-    min-width: 30%;
+    max-width: 30%;
   }

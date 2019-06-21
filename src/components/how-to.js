@@ -6,12 +6,16 @@ export default function HowTo()  {
     //     const stepOne = this.props.stepOne;
     //     const stepTwo = this.props.stepTwo;
     //     const stepThree = this.props.stepThree;
+    
+    const stepOne = "Just learned a new word, you don't want to forget five minutes from now? Get Started to begin saving new words to your list";
+    const stepTwo = "Access and view your list of words from your 'lexi-list' in the navbar";
+    const stepThree = "view, edit, or delete any word by clicking on it from your 'lexi-list";
 
         return (
             <section class="howItWorks">
-                <div class="howToSteps" id="step1"> stepOne </div>
-                <div class="howToSteps" id="step2"> stepTwo </div>
-                <div class="howToSteps" id="step3"> stepThree </div>
+                <div class="howToSteps" id="step1"> {stepOne} </div>
+                <div class="howToSteps" id="step2"> {stepTwo} </div>
+                <div class="howToSteps" id="step3"> {stepThree} </div>
             </section>
         )
         
