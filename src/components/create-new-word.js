@@ -9,7 +9,6 @@ export default function CreateNewWord(){
     return (
         <div>
         <div>
-            <h1>also working</h1>
             <NavBar />
         </div>
         <section>

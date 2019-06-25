@@ -13,7 +13,6 @@ import './new-word-form.css';
 export default function NewWordForm() {
         return (
             <div>
-            <h1>wow! it works!</h1>
             <form class="new-word-form">
                 <label htmlFor="new-word">Create New Word</label>
                 <Field name="new-word" id="new-word" type="text" component="input" />

@@ -7,7 +7,7 @@ export const addWord = (word,definition) => ({
     definition
 });
 
-// should ADD_WORD & ADD_DEFINITION be separate? 
+// should each ACTION be separate? for ex: ADD_WORD & ADD_DEFINITION
 
 //actions to consider: 
 // delete word

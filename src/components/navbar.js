@@ -1,23 +1,68 @@
-import React from 'react';
+import React, {Component} from 'react';
+
+import Login from './login';
+import LandingPage from './landing-page';
 import './navbar.css';
 
-export default function NavBar() {
-    // render() {
-    //     const links = props.links.map((link, index)=> (
-    //         <li>
-    //             <a href={link.href}>
-    //                 {link.text}
-    //             </a>
-    //         </li>
-    //     ));
 
+class NavBar extends Component {
+    constructor(){
+      super();
+  
+      this.state = {
+        displayLogin: false,
+        displayHP: false
+      }
+    }
+  
+    handleLoginClick() {
+      this.setState({
+        displayLogin: !this.state.displayLogin
+      })
+    }
+
+    handleLogoClick(){
+        this.setState({
+            displayHP: !this.state.displayHP
+        })
+    }
+  
+    render() {
+      if ( this.state.displayLogin ) {
         return (
-            <nav role="navigation" class="nav">
-                <h4>hey nav bar here</h4>
-                <ul class="nav-link" id="nav-ul">
-                {/* {links} */}
-                </ul>
-            </nav>
-        )
-    // }
+          {Login }
+        )    
+      }
+
+      if( this.state.displayHP ) {
+          return (
+              <LandingPage />
+          )
+      }
+
+      return (
+        <nav>
+            <ul>
+                <li>
+                    <a
+                        href="#login"
+                        onClick={() => this.handleLoginClick()}
+                    >
+                        login
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#landingPage"
+                        onClick={() => this.handleLogoClick()}
+                    >
+                        lexi
+                    </a>
+                </li>
+            </ul>
+        </nav>
+      )
+    }
 }
+
+export default NavBar;
