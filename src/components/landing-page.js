@@ -4,8 +4,10 @@ import React, {Component} from 'react';
 import NavBar from './navbar';
 import Header from './header';
 import HowTo from './how-to';
-import GetStarted from './get-started';
+// import GetStarted from './get-started';
 import SignUp from './sign-up';
+// import Login from './login';
+// import NewWord from './new-word-form';
 
 import './landing-page.css';
 
@@ -34,6 +36,9 @@ class LandingPage extends Component {
         return (
             <div>
                 <NavBar />
+                {/* <SignUp />
+                <Login />
+                <NewWord /> */}
                 <Header />
                 <section>
                 <HowTo />

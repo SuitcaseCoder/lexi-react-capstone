@@ -1,75 +1,58 @@
-import React from 'react';
-import {reduxForm, Field} from 'redux-form';
+import React, {Component} from 'react';
+// import {reduxForm, Field} from 'redux-form';
 
 import './new-word-form.css';
 
-// export class NewWordForm extends React.Component {
-    // onSubmit(values){
-    //     console.log(values);
-    // }
 
-    // render() {
+class NewWord extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            title: 'Add a New Word',
+            wordValue: '',
+            defValue: ''
+        };
+          
+        this.handleWordChange = this.handleWordChange.bind(this);
+        this.handleDefChange = this.handleDefChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-export default function NewWordForm() {
-        return (
+    handleWordChange(event){
+        this.setState({
+            wordValue:  event.target.value,
+        });
+    }
+
+    handleDefChange(event){
+        this.setState({
+            defValue: event.target.value
+        })
+    }
+
+    handleSubmit(event){
+        event.preventDefault();
+        alert('A word was submitted: ' + this.state.wordValue + this.state.defValue);
+    }
+
+    render() {
+        return(
             <div>
-            <form class="new-word-form">
-                <label htmlFor="new-word">Create New Word</label>
-                <Field name="new-word" id="new-word" type="text" component="input" />
-                
-                <label htmlFor="definition">My Definition</label>
-                <Field name="definition" id="definition" type="text" component="input" />
-
-                
-                <div class="word-buttons" class="word-details">
-                    <input class="word-button" type="submit" value="Save" name="save"/>
-                    <input class="word-button" type="submit" value="Edit" name="edit"/>
-                    <input class="word-button" type="submit" value="Delete" name="delete"/>
-                </div>
+            <h2>{this.state.title}</h2>
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    Word
+                    <input type="text" value={this.state.wordValue} onChange={this.handleWordChange} />
+                </label>
+                <label>
+                    Definition
+                    <textarea value={this.state.defValue} onChange={this.handleDefChange} />
+                </label>
+                <input type="submit" value="Submit" />
             </form>
             </div>
         )
-    // }
+    }
 }
 
-//do I export the above or export the below? #confused
-// </input>
-// export default reduxForm({
-//     form: 'new-word'
-// })(NewWordForm);
-
-// OR do I build out a form like this? 
-
-// export default function NewWordForm() {
-//    return(
-//     <div>
-//         <h1>wow! it works!</h1>
-//         <form class="new-word-form">
-//             <label htmlFor="new-word">Create New Word</label>
-//             <input 
-//                 name="new-word"
-//                 id="new-word"
-//                 type="text"
-//                 value={this.state.text}
-//                 onChange={e=> this.setText(e.target.value)} 
-//              />
-            
-//             <label htmlFor="definition">My Definition</label>
-//             <input 
-//                 name="definition"
-//                 id="definition"
-//                 type="text"
-//                 value={this.state.text}
-//                 onChange={e => this.setText(e.target.value)}
-//              />
-
-            
-//             <div class="word-buttons" class="word-details">
-//                 <input class="word-button" type="submit" value="Save" name="save"/>
-//                 <input class="word-button" type="submit" value="Edit" name="edit"/>
-//                 <input class="word-button" type="submit" value="Delete" name="delete"/>
-//             </div>
-//         </form>
-//         </div>
-//    )
-// }
+export default NewWord;

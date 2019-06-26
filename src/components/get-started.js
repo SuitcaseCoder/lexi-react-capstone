@@ -1,4 +1,7 @@
 import React from 'react';
+
+import NavBar from './navbar';
+
 import './get-started.css';
 
 // onClick() {
@@ -24,7 +27,10 @@ export default function GetStarted(props) {
     
     return (
         <div>
+        <NavBar />
+        <div>
         <Button id="getStarted" onClick={(props)=> {props.handleClickGetStarted()}}/>
+        </div>
         </div>
     )
 }

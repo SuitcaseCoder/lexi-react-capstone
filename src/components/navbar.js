@@ -30,7 +30,7 @@ class NavBar extends Component {
     render() {
       if ( this.state.displayLogin ) {
         return (
-          {Login }
+          <Login />
         )    
       }
 

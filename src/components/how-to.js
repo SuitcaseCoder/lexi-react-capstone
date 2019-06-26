@@ -12,10 +12,10 @@ export default function HowTo()  {
     const stepThree = "view, edit, or delete any word by clicking on it from your 'lexi-list";
 
         return (
-            <section class="howItWorks">
-                <div class="howToSteps" id="step1"> {stepOne} </div>
-                <div class="howToSteps" id="step2"> {stepTwo} </div>
-                <div class="howToSteps" id="step3"> {stepThree} </div>
+            <section className="howItWorks">
+                <div className="howToSteps" id="step1"> {stepOne} </div>
+                <div className="howToSteps" id="step2"> {stepTwo} </div>
+                <div className="howToSteps" id="step3"> {stepThree} </div>
             </section>
         )
         
