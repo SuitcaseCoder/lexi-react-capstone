@@ -1,8 +1,11 @@
+//------------- NAVBAR ---------------- //
+
 import React, {Component} from 'react';
 
-import Login from './login';
+import LoginPage from './login-page';
 import LandingPage from './landing-page';
-import NewWord from './new-word-form';
+import CreateWordPage from './create-new-word';
+import Homepage from './homepage';
 import './navbar.css';
 
 
@@ -13,7 +16,8 @@ class NavBar extends Component {
       this.state = {
         displayLogin: false,
         displayHP: false,
-        displayNewWord: false
+        displayNewWord: false,
+        displayHowTo: false
       }
     }
   
@@ -34,35 +38,47 @@ class NavBar extends Component {
             displayHP: !this.state.displayHP
         })
     }
+
+    handleHowToClick(){
+        this.setState({
+            displayHP: !this.state.displayHowTo
+        })
+    }
   
     render() {
       if ( this.state.displayLogin ) {
         return (
-          <Login />
+          <LoginPage />
         )    
       }
 
       if (this.state.displayNewWord){
           return(
-              <NewWord />
+              <CreateWordPage />
           )
       }
 
       if( this.state.displayHP ) {
           return (
-              <LandingPage />
+              <Homepage />
           )
       }
+
+      if( this.state.displayHowTo ) {
+        return (
+            <LandingPage />
+        )
+    }
 
       return (
         <nav>
             <ul>
                 <li>
                     <a
-                        href="#login"
+                        href="#login-page"
                         onClick={() => this.handleLoginClick()}
                     >
-                        login
+                        Login
                     </a>
                 </li>
                 <li>
@@ -75,10 +91,18 @@ class NavBar extends Component {
                 </li>
                 <li>
                     <a
-                        href="#landingPage"
+                        href="#homepage"
                         onClick={() => this.handleLogoClick()}
                     >
-                        lexi
+                        Lexi
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#landingPage"
+                        onClick={() => this.handleHowToClick()}
+                    >
+                        How to
                     </a>
                 </li>
             </ul>

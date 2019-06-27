@@ -1,3 +1,4 @@
+//------------- MY LIST PAGE ---------------- //
 import React from 'react';
 import NavBar from './navbar.js';
 import EachLetter from './each-letter';
@@ -15,3 +16,9 @@ export default function listOfWords(){
         </div>
     )
 }
+
+// action would make the ajax request/ in actions
+// data comes back// as json object must map through it in fetch rquet in component
+//  dispatch a separate sync action with type property/ in component
+//  update the state with data / by doing:
+//  connect and mapstateToProp with that state // ??

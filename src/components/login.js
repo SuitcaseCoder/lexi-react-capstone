@@ -1,3 +1,4 @@
+//------------- LOGIN FORM ---------------- //
 import React, {Component} from 'react';
 
 import NavBar from './navbar';
@@ -36,7 +37,6 @@ class LoginForm extends Component {
     render() {
         return(
             <div>
-            <NavBar />
             <h2>{this.state.title}</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>

@@ -1,3 +1,5 @@
+//------------- SIGN UP FORM ---------------- //
+
 import React, {Component} from 'react';
 import NavBar from './navbar';
 import Header from './header';
@@ -57,8 +59,6 @@ class SignUpForm extends Component {
     render() {
         return(
             <div>
-                <NavBar />
-                <Header />
             <h2>{this.state.title}</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>

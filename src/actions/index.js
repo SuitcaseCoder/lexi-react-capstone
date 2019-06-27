@@ -1,18 +1,15 @@
-// import { wordsReducer } from "../reducers";
 import {_addNewWord} from '../checkingNewWordThunk';
 
-//action
 export const ADD_WORD = 'ADD_WORD';
-//action creator . just
-// export const addWord = (word,definition) => ({
+//  const addWord = (word,definition) => ({
 //     type: ADD_WORD,
 //     word,
 //     definition
 // });
 
-export const addNewWord = () => dispatch => {
+export const addNewWord = (word,def) => dispatch => {
     alert('addNewWord action creator reached')
-    fetch(`https://evening-sierra-54551.herokuapp.com/words`).then(res => {
+    fetch(`https://evening-sierra-54551.herokuapp.com/{word}`).then(res => {
         alert('fetch call made it back correctly');
         return res.json();
     }).then(words => {

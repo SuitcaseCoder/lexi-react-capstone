@@ -1,3 +1,4 @@
+//------------- NEW WORD FORM ---------------- //
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
@@ -34,7 +35,7 @@ class NewWord extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        this.props.dispatch(addNewWord());
+        this.props.dispatch(addNewWord(this.state.wordValue));
         alert('you clicked a button');
 
         //dispatch a fetch request to a different action 
@@ -44,7 +45,6 @@ class NewWord extends Component {
     render() {
         return(
             <div>
-                <NavBar />
             <h2>{this.state.title}</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>

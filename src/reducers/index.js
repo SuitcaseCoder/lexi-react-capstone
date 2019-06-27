@@ -60,12 +60,15 @@ const initialState = {
 };
 
 export function addWordReducer(state=initialState, action){
-    
+    if(action.type === actions.ADD_WORD){
         return Object.assign({}, state, {
-            word: action.wordValue,
-            definition: action.definitionValue
+            words: [ ...state.words, {
+                word: action.word,
+                definition: action.definition
+            }]
         });
    
+    }
     return state;
 }
 

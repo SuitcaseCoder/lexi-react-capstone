@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
-// import {connect} from 'react-redux';
 
 import NavBar from './navbar';
 import Header from './header';
 import HowTo from './how-to';
-// import GetStarted from './get-started';
-import SignUp from './sign-up';
-// import Login from './login';
-// import NewWord from './new-word-form';
+import SignupPage from './sign-up-page';
 
 import './landing-page.css';
 
@@ -30,7 +26,7 @@ class LandingPage extends Component {
     render(){
         if( this.state.displaySignup ){
             return(
-                <SignUp />
+                <SignupPage />
             )
         }
         return (
