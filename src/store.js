@@ -1,5 +1,8 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
+import thunk from 'redux-thunk';
+import {addWordReducer} from './reducers';
 
-import {wordsReducer} from './reducers';
-
-export default createStore(wordsReducer)
+export default createStore(
+    addWordReducer,
+    applyMiddleware(thunk)
+);

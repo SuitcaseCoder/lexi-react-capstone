@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import NavBar from './navbar';
+import Header from './header';
 
 // export default function SignUp(){
 //     return (
@@ -57,6 +58,7 @@ class SignUpForm extends Component {
         return(
             <div>
                 <NavBar />
+                <Header />
             <h2>{this.state.title}</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import Login from './login';
 import LandingPage from './landing-page';
+import NewWord from './new-word-form';
 import './navbar.css';
 
 
@@ -11,7 +12,8 @@ class NavBar extends Component {
   
       this.state = {
         displayLogin: false,
-        displayHP: false
+        displayHP: false,
+        displayNewWord: false
       }
     }
   
@@ -19,6 +21,12 @@ class NavBar extends Component {
       this.setState({
         displayLogin: !this.state.displayLogin
       })
+    }
+
+    handleNewWordClick(){
+        this.setState({
+            displayNewWord: !this.state.displayNewWord
+        })
     }
 
     handleLogoClick(){
@@ -32,6 +40,12 @@ class NavBar extends Component {
         return (
           <Login />
         )    
+      }
+
+      if (this.state.displayNewWord){
+          return(
+              <NewWord />
+          )
       }
 
       if( this.state.displayHP ) {
@@ -49,6 +63,14 @@ class NavBar extends Component {
                         onClick={() => this.handleLoginClick()}
                     >
                         login
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="#newWord"
+                        onClick={() => this.handleNewWordClick()}
+                    >
+                        New Word
                     </a>
                 </li>
                 <li>

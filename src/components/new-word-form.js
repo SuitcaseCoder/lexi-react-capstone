@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-// import {reduxForm, Field} from 'redux-form';
+import {connect} from 'react-redux';
 
 import './new-word-form.css';
 
+import NavBar from './navbar';
+import addNewWord from '../actions/index.js';
 
 class NewWord extends Component {
     constructor(props){
@@ -32,12 +34,17 @@ class NewWord extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        alert('A word was submitted: ' + this.state.wordValue + this.state.defValue);
+        this.props.dispatch(addNewWord());
+        alert('you clicked a button');
+
+        //dispatch a fetch request to a different action 
+        // replace alert with dispatch ---  dispatch action that'll make ajax request 
     }
 
     render() {
         return(
             <div>
+                <NavBar />
             <h2>{this.state.title}</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>
@@ -55,4 +62,10 @@ class NewWord extends Component {
     }
 }
 
-export default NewWord;
+const mapStateToProps = state => ({
+    word: state.word,
+    definition: state.definition
+
+});
+
+export default connect(mapStateToProps)(NewWord);
