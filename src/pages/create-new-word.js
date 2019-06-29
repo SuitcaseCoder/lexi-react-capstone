@@ -1,7 +1,6 @@
 //------------- CREATE WORD PAGE ---------------- //
 
 import React from 'react';
-import NavBar from '../components/navbar.js';
 import NewWordForm from '../components/new-word-form.js';
 
 import '../components/create-new-word.css';
@@ -10,8 +9,9 @@ import '../components/create-new-word.css';
 export default function CreateNewWord(){
     return (
         <div>
+            <h1>Add Word Page</h1>
         <div>
-            <NavBar />
+
         </div>
         <section>
             <NewWordForm />

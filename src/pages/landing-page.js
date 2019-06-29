@@ -17,7 +17,7 @@ class LandingPage extends Component {
             
             <div>
                 Landing Page 
-                <NavBar location = {this.props.location} />
+                <NavBar  />
                 <Header />
                 <section>
                 <HowTo />

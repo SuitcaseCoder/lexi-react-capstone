@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 import Layout from './pages/layout';
@@ -23,13 +23,12 @@ ReactDOM.render(
     <Provider store={store}>
     {/* <LandingPage /> */}
     <Router>
-        <Link to="addword">add</Link>
         <Route path="/" component={Layout}></Route>
-             <Route exact path = "login" component= {LoginPage}></Route>
-            <Route exact path = "landingpage" component= {LandingPage}></Route>
-            <Route exact path = "homepage" component= {Homepage}></Route>
-            <Route exact path = "mylist" component= {ListOfWords}></Route>
-            <Route exact path = "addword" component={CreateNewWord}></Route>
+             <Route path="/login-page" component= {LoginPage}></Route>
+            <Route path="/addword" component={CreateNewWord}></Route>
+            <Route path="/landingpage" component= {LandingPage}></Route>
+            <Route path="/homepage" component= {Homepage}></Route>
+            <Route path="/mylist" component= {ListOfWords}></Route>
 
     </Router>
     </Provider>, document.getElementById("root")

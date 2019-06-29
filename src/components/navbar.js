@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Link} from 'react-router-dom';
 // import LandingPage from '../pages/landing-page';
 // import Homepage from './homepage';
 import './navbar.css';
+// import LoginForm from './login';
 
 //---------------------
 // import Homepage from '../pages/homepage';
@@ -77,16 +78,14 @@ class NavBar extends Component {
     //     )
     // }
 render() {
-    const { location } = this.props;
 
-    const loginClass = location.pathname.match(/login-page/) ? "active" : "";
+    // const loginClass = location.pathname.match('login-page') ? "active" : "";
 
       return (
-          <Router>
                 <nav>
                     <ul>
-                        <li className={loginClass}> 
-                            <Link to="login-page">Login</Link>
+                        <li> 
+                            <Link to="/login-page">Login</Link>
                         </li>
                         <li>
                         <Link to="addword"><button>Add Word</button></Link>
@@ -117,13 +116,7 @@ render() {
                         </li>
                     </ul>
                 </nav>
-                {/* <Route exact path = "/" component= {LandingPage}></Route>
-      <Route exact path = "login" component= {LoginPage}></Route>
-      <Route exact path = "landingpage" component= {LandingPage}></Route>
-      <Route exact path = "homepage" component= {Homepage}></Route>
-      <Route exact path = "mylist" component= {ListOfWords}></Route>
-      <Route exact path = "addword" component= {CreateNewWord}></Route> */}
-             </Router>
+               
       )
     }
 }
