@@ -1,8 +1,8 @@
 //------------- SIGN UP FORM ---------------- //
 
 import React, {Component} from 'react';
-import NavBar from './navbar';
-import Header from './header';
+// import NavBar from './navbar';
+// import Header from './header';
 
 // export default function SignUp(){
 //     return (

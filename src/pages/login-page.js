@@ -2,21 +2,19 @@
 
 import React, {Component} from 'react';
 
-import Login from './login';
-import NavBar from './navbar';
+import Login from '../components/login';
+import NavBar from '../components/navbar';
 
 class LoginPage extends Component {
-    constructor() {
-        super()
-
-    }
     render(){
-        
+        console.log('login page rendered')
         return (
                 <div>
-                <NavBar />
-                <section>
                     <Login />
+                    Login Page
+                <NavBar location={this.props.location} />
+                <section>
+                    {/* <Login /> */}
                 </section>
                 </div>
         )

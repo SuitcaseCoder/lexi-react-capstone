@@ -43,7 +43,7 @@ import * as actions from '../actions';
 
 
 const initialState = {
-    words: [{
+    wordsA: [{
         // letter: 'A',
         word: 'Apfel',
         definition: 'Ein Obst, der von Baeume waechst.A yummy fruit that grows on trees.'
@@ -52,7 +52,7 @@ const initialState = {
         word: 'abnehmen',
         definition: 'duenner zu werden. to lose weight'
     }],
-    words: [{
+    wordsB: [{
         // letter: 'B',
         word: 'Baum',
         definition: 'Eine grosse Pflanze mit vielen Blaetter. A tree.'

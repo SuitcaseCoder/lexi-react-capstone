@@ -37,6 +37,7 @@ class LoginForm extends Component {
     render() {
         return(
             <div>
+                <NavBar location = { this.props.location } />
             <h2>{this.state.title}</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>

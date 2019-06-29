@@ -1,9 +1,9 @@
 //------------- MY LIST PAGE ---------------- //
 import React from 'react';
-import NavBar from './navbar.js';
-import EachLetter from './each-letter';
+import NavBar from '../components/navbar.js';
+import EachLetter from '../components/each-letter.js';
 
-import './list-of-words.css';
+import '../components/list-of-words.css';
 
 export default function listOfWords(){
     return (

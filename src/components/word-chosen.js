@@ -3,7 +3,7 @@ import React from 'react';
 
 import NavBar from './navbar';
 
-import './word-chose.css';
+import './word-chosen.css';
 
 export default function WordChosen() {
     return(

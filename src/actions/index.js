@@ -1,4 +1,4 @@
-import {_addNewWord} from '../checkingNewWordThunk';
+// import {_addNewWord} from '../checkingNewWordThunk';
 
 export const ADD_WORD = 'ADD_WORD';
 //  const addWord = (word,definition) => ({

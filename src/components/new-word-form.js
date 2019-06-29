@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 
 import './new-word-form.css';
 
-import NavBar from './navbar';
 import addNewWord from '../actions/index.js';
 
 class NewWord extends Component {

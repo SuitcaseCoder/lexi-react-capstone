@@ -1,11 +1,14 @@
+//------------- SIGNUP PAGE ---------------- //
+
 import React, {Component} from 'react';
 
-import NavBar from './navbar';
-import WordChosen from './word-chosen';
+import NavBar from '../components/navbar';
+import Signup from '../components/sign-up';
 
-class WordChosenPage extends Component {
+class SignupPage extends Component {
     // constructor() {
     //     super()
+
     // }
     render(){
         
@@ -13,7 +16,7 @@ class WordChosenPage extends Component {
                 <div>
                 <NavBar />
                 <section>
-                    <WordChosen />
+                    <Signup />
                 </section>
                 </div>
         )
@@ -21,5 +24,6 @@ class WordChosenPage extends Component {
 
 }
 
-export default WordChosenPage;
+
+export default SignupPage;
 

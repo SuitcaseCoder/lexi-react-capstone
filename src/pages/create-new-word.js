@@ -1,10 +1,10 @@
 //------------- CREATE WORD PAGE ---------------- //
 
 import React from 'react';
-import NavBar from './navbar.js';
-import NewWordForm from './new-word-form';
+import NavBar from '../components/navbar.js';
+import NewWordForm from '../components/new-word-form.js';
 
-import './create-new-word.css';
+import '../components/create-new-word.css';
 // import { NewWordForm } from './new-word-form.js';
 
 export default function CreateNewWord(){

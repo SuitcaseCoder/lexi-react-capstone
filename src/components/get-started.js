@@ -29,7 +29,9 @@ export default function GetStarted(props) {
         <div>
         <NavBar />
         <div>
-        <Button id="getStarted" onClick={(props)=> {props.handleClickGetStarted()}}/>
+        <Link to="signup"><button className="getStarted">Get Started</button></Link>
+
+        {/* <Link to="signup"><button className="getStarted" onClick={(props)=> {props.handleClickGetStarted()}}></button></Link> */}
         </div>
         </div>
     )

@@ -3,18 +3,14 @@
 import React, {Component} from 'react';
 // import {connect} from 'react-redux';
 
-import NavBar from './navbar';
-import Header from './header';
+import NavBar from '../components/navbar';
+import Header from '../components/header';
 // import NewWord from './new-word-form';
 
-import './landing-page.css';
+import '../components/landing-page.css';
 
 
 class Homepage extends Component {
-    constructor() {
-        super()
-
-    }
     render(){
         
         return (

@@ -1,12 +1,39 @@
-// import React, {Component} from 'react';
+import React, {Component} from 'react';
 // import {BrowserRouter as Router} from 'react-router-dom';
-// import NavBar from '../components/navbar';
-// import Header from '../components/header';
-// import HowTo from '../components/how-to';
-// import SignupPage from '../components/sign-up-page';
+import NavBar from '../components/navbar';
+import Header from '../components/header';
+import HowTo from '../components/how-to';
 
-// import './landing-page.css';
+// import SignupPage from './sign-up-page';
 
+
+
+import '../components/landing-page.css';
+
+class LandingPage extends Component {
+    render(){
+        // const { query } = this.props.location;
+        return(
+            
+            <div>
+                Landing Page 
+                <NavBar location = {this.props.location} />
+                <Header />
+                <section>
+                <HowTo />
+                </section>
+                <section>
+                <div>
+                    {/* <Button 
+                        id="getStarted" 
+                        onClick={()=> {this.handleClickGetStarted()}}
+                    /> */}
+                </div>
+                </section>
+            </div>
+        )
+    }
+}
 
 // class LandingPage extends Component {
 //     constructor() {
@@ -30,8 +57,8 @@
 //             )
 //         }
 //         return (
-//             <Router>
 //                 <div>
+                     
 //                     <NavBar />
 //                     <Header />
 //                     <section>
@@ -46,7 +73,6 @@
 //                     </div>
 //                     </section>
 //                 </div>
-//             </Router>
 //         )
 //     }
 
@@ -56,6 +82,7 @@
 //     return <button onClick={()=> props.onClick()}>get started</button>
 // }
 
-// export default LandingPage;
+
+export default LandingPage;
 
 
