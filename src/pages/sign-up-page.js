@@ -1,8 +1,8 @@
 //------------- SIGNUP PAGE ---------------- //
 
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
-import NavBar from '../components/navbar';
 import Signup from '../components/sign-up';
 
 class SignupPage extends Component {
@@ -14,10 +14,10 @@ class SignupPage extends Component {
         
         return (
                 <div>
-                <NavBar />
                 <section>
                     <Signup />
                 </section>
+                <div>already have an account? <Link to="/login-page">login</Link></div>
                 </div>
         )
     }

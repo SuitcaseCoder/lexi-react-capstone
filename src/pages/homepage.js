@@ -14,9 +14,8 @@ class Homepage extends Component {
         
         return (
                 <div>
-                <Header />
                 <section>
-                    <h1>Hello there</h1>
+                    <Header />
                 </section>
                 </div>
         )

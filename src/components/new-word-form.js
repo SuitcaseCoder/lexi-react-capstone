@@ -5,12 +5,13 @@ import {connect} from 'react-redux';
 import './new-word-form.css';
 
 import addNewWord from '../actions/index.js';
+import displayWords from '../actions/index.js';
 
 class NewWord extends Component {
     constructor(props){
         super(props);
         this.state = {
-            title: 'Add a New Word',
+            title: '',
             wordValue: '',
             defValue: ''
         };
@@ -35,8 +36,9 @@ class NewWord extends Component {
     handleSubmit(event){
         event.preventDefault();
         this.props.dispatch(addNewWord(this.state.wordValue));
-        alert('you clicked a button');
-
+        this.props.dispatch(displayWords(this.state.wordValue));
+        
+//all fetch requests be done in Async actions
         //dispatch a fetch request to a different action 
         // replace alert with dispatch ---  dispatch action that'll make ajax request 
     }

@@ -9,10 +9,7 @@ import '../components/create-new-word.css';
 export default function CreateNewWord(){
     return (
         <div>
-            <h1>Add Word Page</h1>
-        <div>
-
-        </div>
+            <h1>Add a New Word to your Lexi List</h1>
         <section>
             <NewWordForm />
         </section>

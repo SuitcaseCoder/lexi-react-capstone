@@ -59,6 +59,7 @@ class SignUpForm extends Component {
     render() {
         return(
             <div>
+                <h2>sign up here</h2>
             <h2>{this.state.title}</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>

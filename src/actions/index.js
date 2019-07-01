@@ -1,22 +1,35 @@
 // import {_addNewWord} from '../checkingNewWordThunk';
 
 export const ADD_WORD = 'ADD_WORD';
-//  const addWord = (word,definition) => ({
-//     type: ADD_WORD,
-//     word,
-//     definition
-// });
+ const addWord = (word) => ({
+    type: ADD_WORD,
+    word
+});
 
 export const addNewWord = (word,def) => dispatch => {
-    alert('addNewWord action creator reached')
-    fetch(`https://evening-sierra-54551.herokuapp.com/{word}`).then(res => {
-        alert('fetch call made it back correctly');
+    fetch(`https://evening-sierra-54551.herokuapp.com/words`).then(res => {
         return res.json();
     }).then(words => {
-        dispatch(addNewWord(words));
+        dispatch(addWord(words));
     })
 }
 
+export const DISPLAY_ALL_WORDS = 'DISPLAY_ALL_WORDS';
+const displayAllWords = (allWords) => ({
+    type: DISPLAY_ALL_WORDS,
+    allWords
+});
+
+export const displayWords = (allWords) => dispatch => {
+    fetch(`https://evening-sierra-54551.herokuapp.com/words`)
+    .then(res => {
+        console.log(res);
+        return res.json();
+    })
+    .then(allWords => {
+        dispatch(displayAllWords(allWords));
+    })
+}
 
 //actions to consider: 
 // DELETE word
@@ -27,4 +40,5 @@ export const addNewWord = (word,def) => dispatch => {
 // view/PUT word
 
 
-export default addNewWord;
+// export default addNewWord;
+export default displayWords;

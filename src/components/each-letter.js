@@ -1,32 +1,17 @@
 import React from 'react';
 
+export default function EachLetter(props) {
 
-import './each-letter.css';
-
-export default function EachLetter() {
-
+        console.log({props})
+    
     return (
-      <div>each letter here</div>
-        // how do I make this change by letter. so alphabetize it and display the correct letter? 
-        
-      //   <section class="letter-section" id="a">
-      //   {/* // h2 has an example of using a 'prop' like 'text' */}
-      //   <h2 text=" ">
-      //     {/* {letter}  */}
-      //   </h2>
-      //   <ul>
-      //     <li id="word1" class="a">
-      //       <a href="#">
-      //         <ExampleWord />
-      //       </a>
-      //     </li>
-      //     <li id="word2" class="a">
-      //       <a href="#">Apfel</a>
-      //     </li>
-      //     <li id="word3" class="a">
-      //       <a href="#">Armeise</a>
-      //     </li>
-      //   </ul>
-      // </section>
-    )
-}
+        <div>
+            <li className="eachWord">
+                <div className="wordTitle">{props.word}</div>
+                <div className="wordDefinition">{props.def}</div>
+            </li>
+        </div>
+        );      
+    };
+
+    //  {/* // <Link to="/words/:wordid">{beispielWord}</Link> */}

@@ -6,11 +6,9 @@ import Login from '../components/login';
 
 class LoginPage extends Component {
     render(){
-        console.log('login page rendered')
         return (
                 <div>
-                    <h1>HELLO LOGIN PAGE</h1>
-
+                    <h1>Login to your Lexi Account</h1>
                 <section>
                     <Login />
                 </section>
