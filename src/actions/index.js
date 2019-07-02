@@ -8,7 +8,7 @@ export const ADD_WORD = 'ADD_WORD';
 });
 
 export const addNewWord = (word, definition) => dispatch => {
-    fetch(`http://localhost:8080/words`,{
+    fetch(`https://evening-sierra-54551.herokuapp.com/words`,{
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({
@@ -42,7 +42,8 @@ export const fetchWordsSuccess = words => ({
 
 export const fetchWords = () => dispatch => {
     // https://evening-sierra-54551.herokuapp.com
-    fetch(`http://localhost:8080/words`,{
+    // http://localhost:8080
+    fetch(`https://evening-sierra-54551.herokuapp.com/words`,{
         method: 'get',
         headers: {'Content-Type':'application/json'}
         }
