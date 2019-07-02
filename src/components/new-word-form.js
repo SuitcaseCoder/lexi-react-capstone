@@ -5,15 +5,14 @@ import {connect} from 'react-redux';
 import './new-word-form.css';
 
 import addNewWord from '../actions/index.js';
-import displayWords from '../actions/index.js';
+// import displayWords from '../actions/index.js';
 
 class NewWord extends Component {
     constructor(props){
         super(props);
         this.state = {
-            title: '',
-            wordValue: '',
-            defValue: ''
+            word:'',
+            definition: ''
         };
           
         this.handleWordChange = this.handleWordChange.bind(this);
@@ -23,22 +22,23 @@ class NewWord extends Component {
 
     handleWordChange(event){
         this.setState({
-            wordValue:  event.target.value,
+            word:  event.target.value,
         });
     }
 
     handleDefChange(event){
         this.setState({
-            defValue: event.target.value
+            definition: event.target.value
         })
     }
 
     handleSubmit(event){
         event.preventDefault();
-        this.props.dispatch(addNewWord(this.state.wordValue));
-        this.props.dispatch(displayWords(this.state.wordValue));
+        console.log(this.state.word);
+        console.log(this.state.definition);
+        this.props.dispatch(addNewWord(this.state.word, this.state.definition));
         
-//all fetch requests be done in Async actions
+        //all fetch requests be done in Async actions
         //dispatch a fetch request to a different action 
         // replace alert with dispatch ---  dispatch action that'll make ajax request 
     }
@@ -46,17 +46,17 @@ class NewWord extends Component {
     render() {
         return(
             <div>
-            <h2>{this.state.title}</h2>
+            <h2>just maybe a new word</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Word
-                    <input type="text" value={this.state.wordValue} onChange={this.handleWordChange} />
+                    <input type="text" value={this.state.word} onChange={this.handleWordChange} />
                 </label>
                 <label>
                     Definition
-                    <textarea value={this.state.defValue} onChange={this.handleDefChange} />
+                    <textarea value={this.state.definition} onChange={this.handleDefChange} />
                 </label>
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Submit" onClick={this.handleSubmit} />
             </form>
             </div>
         )

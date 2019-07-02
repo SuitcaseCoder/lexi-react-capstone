@@ -1,10 +1,10 @@
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk';
-import {addWordReducer} from './reducers';
+import {lexiReducer} from './reducers';
 
 
 
 export default createStore(
-    addWordReducer,
+    lexiReducer,
     applyMiddleware(thunk)
 );

@@ -1,35 +1,30 @@
 // import {_addNewWord} from '../checkingNewWordThunk';
 
 export const ADD_WORD = 'ADD_WORD';
- const addWord = (word) => ({
+ const addWord = (word,definition) => ({
     type: ADD_WORD,
-    word
+        word,
+        definition
 });
 
-export const addNewWord = (word,def) => dispatch => {
-    fetch(`https://evening-sierra-54551.herokuapp.com/words`).then(res => {
-        return res.json();
-    }).then(words => {
-        dispatch(addWord(words));
+export const addNewWord = (word, definition) => dispatch => {
+    fetch(`http://localhost:8080/words`,{
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+                word,
+                definition
     })
-}
-
-export const DISPLAY_ALL_WORDS = 'DISPLAY_ALL_WORDS';
-const displayAllWords = (allWords) => ({
-    type: DISPLAY_ALL_WORDS,
-    allWords
-});
-
-export const displayWords = (allWords) => dispatch => {
-    fetch(`https://evening-sierra-54551.herokuapp.com/words`)
+    })
     .then(res => {
-        console.log(res);
+        console.log(res)
         return res.json();
     })
-    .then(allWords => {
-        dispatch(displayAllWords(allWords));
+    .then((word,definition) => {
+        dispatch(addWord(word,definition));
     })
 }
+
 
 //actions to consider: 
 // DELETE word
@@ -39,6 +34,32 @@ export const displayWords = (allWords) => dispatch => {
 // signup
 // view/PUT word
 
+export const FETCH_WORDS_SUCCESS = 'FETCH_WORDS_SUCCESS';
+export const fetchWordsSuccess = words => ({
+    type: FETCH_WORDS_SUCCESS,
+    words
+});
 
+export const fetchWords = () => dispatch => {
+    // https://evening-sierra-54551.herokuapp.com
+    fetch(`http://localhost:8080/words`,{
+        method: 'get',
+        headers: {'Content-Type':'application/json'}
+        }
+    )
+        .then(res => {
+            if(!res.ok) {
+                return Promise.reject(res.statusText)
+            }
+            return res.json();
+        })
+        .then(words => {
+            console.log('from fetch words: ', words);
+            dispatch(fetchWordsSuccess(words));
+        });
+};
+
+
+export default fetchWords;
 // export default addNewWord;
-export default displayWords;
+// export default displayWords;

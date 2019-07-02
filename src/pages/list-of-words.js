@@ -1,69 +1,56 @@
 //------------- MY LIST PAGE ---------------- //
 import React from 'react';
+
+import {connect} from 'react-redux';
+import{fetchWords} from '../actions';
+
 import EachLetter from '../components/each-letter.js';
-import LettersList from '../components/letters-list';
+// import LettersList from '../components/letters-list';
 
 import '../components/list-of-words.css';
 
-export default class ListOfWords extends React.Component {
-    constructor(props) {
+export class ListOfWords extends React.Component {
+    constructor(props){
         super(props);
-
         this.state = {
-                words: [{
-                    word: 'Apfel',
-                    def: 'apple'
-                    },{
-                    word: 'Baum',
-                    def: 'tree'
-                    },{
-                    word: 'Chance',
-                    def: 'chance like in english, but with a french accent'
-                    },{
-                    word: 'deine',
-                    def: 'yours'
-                    }
-                ]
-            }
-        }
- 
-        // render() {
-        //     const words = this.state.words.map((word,index)=>{
-        //         if(word[0] === {letter}){
-        //             <div key={index}>
-        //             <EachLetter {...word} />
-        //             </div>
-        //         }
-        //     }
-        //     );
+            words: [{
+            word:'',
+            definition:''
+        }]
+    };
+        this.handleDisplayWordsButton = this.handleDisplayWordsButton.bind(this);
+    }
+    componentDidMount() {
+        this.props.dispatch(fetchWords());
+    }
+
+    handleDisplayWordsButton(event){
+        event.preventDefault();
+        this.props.dispatch(fetchWords());
+
+    }
 
     render() {
-        const words = this.state.words.map((word,index)=>(
-                <div key={index}>
-                <EachLetter {...word} />
-                </div>
-        )
-        );
-
-        return ( 
-            <div>
-                <ul className="entireList">
-                    <li className="eachLetter">
-                        <LettersList />
-                        <ul className="wordsInEachLetter">
-                            {words}
-                        </ul>
-                    </li>
-                </ul>
+        const words = this.props.words.map((word,index)=>(
+            <div key={index}>
+            <EachLetter {...word}  />
             </div>
-        )
+    ));
+
+    return (
+        <div>
+            <h2>all of my words</h2>
+            <button onClick={this.handleDisplayWordsButton}>click me</button>
+            <ul>
+                {words}
+            </ul>
+        </div>
+    )
     }
 }
 
+const mapStateToProps = state => ({
+    words: state.words
+})
 
-
-// action would make the ajax request/ in actions
-// data comes back// as json object must map through it in fetch rquet in component
-//  dispatch a separate sync action with type property/ in component
-//  update the state with data / by doing:
-//  connect and mapstateToProp with that state // ??
+export default connect(mapStateToProps)(ListOfWords);
