@@ -25,15 +25,8 @@ export const addNewWord = (word, definition) => dispatch => {
     })
 }
 
-
-//actions to consider: 
-// DELETE word
-// POST/create word
-// GET all words
-// login
-// signup
-// view/PUT word
-
+// -------------------------------------------------------------------
+// GET WORDS
 export const FETCH_WORDS_SUCCESS = 'FETCH_WORDS_SUCCESS';
 export const fetchWordsSuccess = words => ({
     type: FETCH_WORDS_SUCCESS,
@@ -55,12 +48,92 @@ export const fetchWords = () => dispatch => {
             return res.json();
         })
         .then(words => {
-            console.log('from fetch words: ', words);
             dispatch(fetchWordsSuccess(words));
         });
 };
 
+// -------------------------------------------------------------------
 
-export default fetchWords;
-// export default addNewWord;
+export const DELETE_WORD = "DELETE_WORD";
+const deleteWord = (deleteWord) => ({
+    type: DELETE_WORD,
+        deleteWord,
+});
+
+export const deleteSelectedWord = (deletedWord) => dispatch => {
+    fetch(`http://localhost:8080/delete/{deleteWord}`,{
+        method: 'DELETE',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+                deletedWord,
+        })
+    })
+    .then(res => {
+        console.log(res)
+        return res.json();
+    })
+    .then((deletedWord) => {
+        dispatch(deleteWord(deletedWord));
+    })
+}
+
+// -------------------------------------------------------------------
+// POST - CREATE NEW USER
+export const CREATE_USER = "CREATE_USER";
+const createUser = (newUser) => ({
+    type: CREATE_USER,
+        newUser
+});
+
+export const createNewUser = (newUser) => dispatch => {
+    fetch(`http://localhost:8080/create-user`,{
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+                newUser,
+        })
+    })
+    .then((createdUser)=> {
+        dispatch(createUser(createdUser));
+    })
+}
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+// USER LOGIN
+export const USER_LOGIN = 'USER_LOGIN';
+const login = (loginCreds) => ({
+    type: USER_LOGIN,
+        login
+})
+
+export const userLogin = (loginCreds) => dispatch => {
+    fetch(`http://localhost:8080/login`,{
+        method: '',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+                loginCreds,
+        })
+    })
+    .then((loggedIn)=> {
+        dispatch(createUser(loggedIn));
+    })
+}
+
+// -------------------------------------------------------------------
+
+
+
+//actions to consider: 
+// DELETE word
+// POST/create word
+// GET all words
+// login
+// signup
+// view/PUT word
+
+
+// export default fetchWords;
+export default addNewWord;
+// export default deleteSelectedWord
 // export default displayWords;

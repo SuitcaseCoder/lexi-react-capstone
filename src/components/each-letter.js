@@ -1,13 +1,19 @@
 import React from 'react';
 
 export default function EachLetter(props) {
-    console.log('testing props in each-letter', props.word, props.definition);
+
+    // listenWordSelected(event){
+    //     this.setState({
+    //         deletedWord:  event.target.value,
+    //     });
+    // }
+
     return (
         <div>
             <li className="eachWord">
-                Hello there
                 <div className="wordTitle">{props.word}</div>
                 <div className="wordDefinition">{props.definition}</div>
+                <button className="deleteThisWord" onClick={props.handleDeleteButton}>delete</button>
             </li>
         </div>
         );      

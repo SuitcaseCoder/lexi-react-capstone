@@ -1,23 +1,28 @@
 //------------- LOGIN FORM ---------------- //
 import React, {Component} from 'react';
 
+import {connect} from 'react-redux';
+
+import userLogin from '../actions/index.js';
+
+
 class LoginForm extends Component {
     constructor(props){
         super(props);
         this.state = {
-            title: '',
-            email: '',
+            title: 'Login',
+            username: '',
             password: ''
         };
           
-        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePassChange = this.handlePassChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     }
 
-    handleEmailChange(event){
+    handleUsernameChange(event){
         this.setState({
-            email:  event.target.value,
+            username:  event.target.value,
         });
     }
 
@@ -27,19 +32,20 @@ class LoginForm extends Component {
         })
     }
 
-    handleSubmit(event){
+    handleLoginSubmit(event){
         event.preventDefault();
-        alert('A user has logged in: ' + this.state.email + this.state.password);
+        this.props.dispatch(userLogin(this.state.username, this.state.password));
+        alert('A user has logged in: ' + this.state.username + this.state.password);
     }
 
     render() {
         return(
             <div>
             <h2>{this.state.title}</h2>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleLoginSubmit}>
                 <label>
                     Email
-                    <input type="text" value={this.state.email} onChange={this.handleEmailChange} />
+                    <input type="text" value={this.state.username} onChange={this.handleUsernameChange} />
                 </label>
                 <label>
                     Password
@@ -52,4 +58,10 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+
+const mapStateToProps = state => ({
+    username: state.username,
+    password: state.password,
+});
+
+export default connect(mapStateToProps)(LoginForm);

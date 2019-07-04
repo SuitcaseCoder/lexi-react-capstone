@@ -17,7 +17,7 @@ class NewWord extends Component {
           
         this.handleWordChange = this.handleWordChange.bind(this);
         this.handleDefChange = this.handleDefChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleNewWordSubmit = this.handleNewWordSubmit.bind(this);
     }
 
     handleWordChange(event){
@@ -32,22 +32,19 @@ class NewWord extends Component {
         })
     }
 
-    handleSubmit(event){
+    handleNewWordSubmit(event){
         event.preventDefault();
         console.log(this.state.word);
         console.log(this.state.definition);
         this.props.dispatch(addNewWord(this.state.word, this.state.definition));
-        
-        //all fetch requests be done in Async actions
-        //dispatch a fetch request to a different action 
-        // replace alert with dispatch ---  dispatch action that'll make ajax request 
+        console.log('thank you for feeding me letters')
     }
 
     render() {
         return(
             <div>
             <h2>just maybe a new word</h2>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleNewWordSubmit}>
                 <label>
                     Word
                     <input type="text" value={this.state.word} onChange={this.handleWordChange} />

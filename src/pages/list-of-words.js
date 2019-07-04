@@ -3,6 +3,7 @@ import React from 'react';
 
 import {connect} from 'react-redux';
 import{fetchWords} from '../actions';
+import {deleteSelectedWord} from '../actions';
 
 import EachLetter from '../components/each-letter.js';
 // import LettersList from '../components/letters-list';
@@ -19,6 +20,7 @@ export class ListOfWords extends React.Component {
         }]
     };
         this.handleDisplayWordsButton = this.handleDisplayWordsButton.bind(this);
+        this.handleDeleteButton = this.handleDeleteButton.bind(this);
     }
     componentDidMount() {
         this.props.dispatch(fetchWords());
@@ -29,7 +31,15 @@ export class ListOfWords extends React.Component {
         this.props.dispatch(fetchWords());
 
     }
-
+//------------------------------------------
+    handleDeleteButton(event){
+        event.preventDefault();
+        console.log('delete button clicked');
+        //add deleted word as a param into deleteSelectedWord. figure out how to get word from word click.
+        this.props.dispatch(deleteSelectedWord());
+        console.log('word deleted');
+    }
+//------------------------------------------
     render() {
         const words = this.props.words.map((word,index)=>(
             <div key={index}>

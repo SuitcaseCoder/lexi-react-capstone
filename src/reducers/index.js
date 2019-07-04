@@ -18,21 +18,25 @@ export const lexiReducer = (state = initialState, action) => {
     }
 
     if(action.type === actions.FETCH_WORDS_SUCCESS){
-        console.log(action.words);
         return Object.assign({}, state, {
             words: action.words
         })
-        // return action.words.map((oneWord)=>{
-        //     console.log('testing', oneWord);
-        //     return Object.assign({}, state, {
-        //         // serialize data in server.js , then I won't need the map at all. then do action words and action definition
-        //         //then copy array of words into new array of words
-        //         words: [...state.words, {
-        //             word: oneWord.word,
-        //             definition: oneWord.definition
-        //         }]  
-        //     });
+    }
+    
+    if(action.type === actions.DELETE_WORD){
+        // return Object.assign({}, state, {
+
         // })
     }
+
+    if(action.type === actions.CREATE_USER){
+        return Object.assign({}, state,{
+            username: action.username,
+            password: action.password,
+            firstName: action.firstName,
+            lastName: action.lastName
+        })
+    }
+
     return state 
 }

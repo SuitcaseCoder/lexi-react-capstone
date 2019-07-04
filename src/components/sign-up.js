@@ -1,6 +1,10 @@
 //------------- SIGN UP FORM ---------------- //
 
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
+import createNewUser from '../actions/index.js';
+
 // import NavBar from './navbar';
 // import Header from './header';
 
@@ -30,30 +34,49 @@ class SignUpForm extends Component {
         super(props);
         this.state = {
             title: 'Sign Up',
-            email: '',
-            password: ''
+            username: '',
+            password: '',
+            firstName: '',
+            lastName: ''
         };
           
-        this.handleEmailChange = this.handleEmailChange.bind(this);
-        this.handlePassChange = this.handlePassChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleUsernameChange = this.handleUsernameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+        this.handleLastNameChange = this.handleLastNameChange.bind(this);
+
+        this.handleNewUserSubmit = this.handleNewUserSubmit.bind(this);
     }
 
-    handleEmailChange(event){
+    handleUsernameChange(event){
         this.setState({
-            email:  event.target.value,
+            username: event.target.value,
         });
     }
 
-    handlePassChange(event){
+    handlePasswordChange(event){
         this.setState({
             password: event.target.value
         })
     }
 
-    handleSubmit(event){
+    handleFirstNameChange(event){
+        this.setState({
+            firstName: event.target.value
+        })
+    }
+
+    handleLastNameChange(event){
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+
+    handleNewUserSubmit(event){
         event.preventDefault();
-        alert('A user has signed up: ' + this.state.email + this.state.password);
+        console.log(this.state.username + this.state.password + this.state.firstName + this.state.lastName);
+        this.props.dispatch(createNewUser(this.state.username, this.state.password, this.state.firstName, this.state.lastName));
+        alert('A user has signed up: ' + this.state.username + this.state.password);
     }
 
     render() {
@@ -61,14 +84,22 @@ class SignUpForm extends Component {
             <div>
                 <h2>sign up here</h2>
             <h2>{this.state.title}</h2>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleNewUserSubmit}>
                 <label>
-                    Email
-                    <input type="text" value={this.state.email} onChange={this.handleEmailChange} />
+                    Username
+                    <input type="text" value={this.state.username} onChange={this.handleUsernameChange} />
                 </label>
                 <label>
                     Password
-                    <input type="text" value={this.state.password} onChange={this.handlePassChange} />
+                    <input type="text" value={this.state.password} onChange={this.handlePasswordChange} />
+                </label>
+                <label>
+                    First Name
+                    <input type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+                </label>
+                <label>
+                    Last Name
+                    <input type="text" value={this.state.lastName} onChange={this.handleLastNameChange} />
                 </label>
                 <input type="submit" value="sign up" />
             </form>
@@ -77,4 +108,13 @@ class SignUpForm extends Component {
     }
 }
 
-export default SignUpForm;
+// export default SignUpForm;
+const mapStateToProps = state => ({
+    username: state.username,
+    password: state.password,
+    firstName: state.firstName,
+    lastName: state.lastName
+
+});
+
+export default connect(mapStateToProps)(SignUpForm);
