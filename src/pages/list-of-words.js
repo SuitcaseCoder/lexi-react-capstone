@@ -30,13 +30,13 @@ export class ListOfWords extends React.Component {
         event.preventDefault();
         console.log(this.props._id);
         //add deleted word as a param into deleteSelectedWord. figure out how to get word from word click.
-        this.props.dispatch(deleteSelectedWord(this.props._id));
+        this.props.dispatch(deleteSelectedWord(this.props._id, event));
     }
 //------------------------------------------
     render() {
         const words = this.props.words.map((word,index)=>(
             <div key={index}>
-            <EachLetter {...word}  />
+            <EachLetter {...word}  handleDeleteButton={this.handleDeleteButton} />
             </div>
     ));
 
