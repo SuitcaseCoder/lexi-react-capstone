@@ -19,25 +19,18 @@ export class ListOfWords extends React.Component {
             definition:''
         }]
     };
-        this.handleDisplayWordsButton = this.handleDisplayWordsButton.bind(this);
         this.handleDeleteButton = this.handleDeleteButton.bind(this);
     }
     componentDidMount() {
         this.props.dispatch(fetchWords());
     }
 
-    handleDisplayWordsButton(event){
-        event.preventDefault();
-        this.props.dispatch(fetchWords());
-
-    }
 //------------------------------------------
     handleDeleteButton(event){
         event.preventDefault();
-        console.log('delete button clicked');
+        console.log(this.props._id);
         //add deleted word as a param into deleteSelectedWord. figure out how to get word from word click.
-        this.props.dispatch(deleteSelectedWord());
-        console.log('word deleted');
+        this.props.dispatch(deleteSelectedWord(this.props._id));
     }
 //------------------------------------------
     render() {
@@ -50,7 +43,6 @@ export class ListOfWords extends React.Component {
     return (
         <div>
             <h2>all of my words</h2>
-            <button onClick={this.handleDisplayWordsButton}>click me</button>
             <ul>
                 {words}
             </ul>
@@ -60,7 +52,7 @@ export class ListOfWords extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    words: state.words
+    words: state.words,
 })
 
 export default connect(mapStateToProps)(ListOfWords);

@@ -1,10 +1,10 @@
 import * as actions from '../actions';
 
 const initialState = {
-    // words: [{
-    //     word:'',
-    //     definition: ''
-    // }]
+    words: [{
+        word:'',
+        definition: ''
+    }],
     authToken: null,
     currentuser: null,
     loading: false,
@@ -13,10 +13,11 @@ const initialState = {
 
 export const lexiReducer = (state = initialState, action) => {
     if(action.type === actions.ADD_WORD){
+        console.log(action);
         return Object.assign({}, state, {
             words: [...state.words, {
-                word: action.word,
-                definition: action.definition
+                word: action.word.word,
+                definition: action.word.definition
             }]
         });
     }

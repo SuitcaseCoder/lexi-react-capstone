@@ -1,5 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
+// import {normalizeResponseErrors} from 
 // -------------------------------------------------------------------
 export const ADD_WORD = 'ADD_WORD';
  const addWord = (word,definition) => ({
@@ -9,20 +10,24 @@ export const ADD_WORD = 'ADD_WORD';
 });
 
 export const addNewWord = (word, definition) => dispatch => {
-    fetch(`https://evening-sierra-54551.herokuapp.com/words`,{
+    const authToken =  localStorage.getItem(`authToken`);
+    fetch(`http://localhost:8080/create-word/protected`,{
         method: 'POST',
-        headers: {'Content-Type':'application/json'},
+        headers: {
+            'Content-Type':'application/json',
+            Authorization: `Bearer ${authToken}`
+        },
         body: JSON.stringify({
                 word,
                 definition
     })
     })
     .then(res => {
-        console.log(res)
         return res.json();
     })
     .then((word,definition) => {
         dispatch(addWord(word,definition));
+        alert(`thanks for feeding me a bunch of letters`);
     })
 }
 
@@ -34,47 +39,54 @@ export const fetchWordsSuccess = words => ({
     words
 });
 
-export const fetchWords = () => dispatch => {
+export const fetchWords = () => (dispatch) => {
     // https://evening-sierra-54551.herokuapp.com
     // http://localhost:8080
-    fetch(`https://evening-sierra-54551.herokuapp.com/words`,{
-        method: 'get',
-        headers: {'Content-Type':'application/json'}
+    const authToken =  localStorage.getItem(`authToken`);
+
+    fetch(`http://localhost:8080/words/protected`,{
+        method: 'GET',
+        headers: {
+            'Content-Type':'application/json',
+            Authorization: `Bearer ${authToken}`
         }
-    )
-        .then(res => {
-            if(!res.ok) {
-                return Promise.reject(res.statusText)
-            }
-            return res.json();
-        })
-        .then(words => {
-            dispatch(fetchWordsSuccess(words));
+    })
+        // .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then((words) => dispatch(fetchWordsSuccess(words)))
+        .catch(err => {
+            console.log(err);
+            // dispatch(fetchProtectedDataError(err));
         });
 };
 
 // -------------------------------------------------------------------
 
 export const DELETE_WORD = "DELETE_WORD";
-const deleteWord = (deleteWord) => ({
+const deleteWord = (deletedWordId) => ({
     type: DELETE_WORD,
-        deleteWord,
+        deletedWordId: deletedWordId
 });
 
-export const deleteSelectedWord = (deletedWord) => dispatch => {
-    fetch(`http://localhost:8080/delete/{deleteWord}`,{
+export const deleteSelectedWord = (deletedWordId) => dispatch => {
+    console.log(`line 72 actions deleteselectedword`);
+    const authToken =  localStorage.getItem(`authToken`);
+    fetch(`http://localhost:8080/delete/{deletedWord}`,{
         method: 'DELETE',
-        headers: {'Content-Type':'application/json'},
+        headers: {
+            'Content-Type':'application/json',
+            Authorization: `Bearer ${authToken}`
+        },
         body: JSON.stringify({
-                deletedWord,
+                deletedWordId,
         })
     })
     .then(res => {
-        console.log(res)
         return res.json();
     })
-    .then((deletedWord) => {
-        dispatch(deleteWord(deletedWord));
+    .then((deletedWordId) => {
+        console.log(deletedWordId)
+        dispatch(deleteWord(deletedWordId));
     })
 }
 
@@ -106,29 +118,6 @@ export const createNewUser = (username, password, firstName, lastName) => dispat
     })
 }
 // -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-// USER LOGIN
-// export const USER_LOGIN = 'USER_LOGIN';
-// const login = (username, password) => ({
-//     type: USER_LOGIN,
-//         username,
-//         password
-// })
-
-// export const userLogin = (username, password) => dispatch => {
-//     fetch(`http://localhost:8080/login`, {
-//         method: 'POST',
-//         headers: {'Content-Type':'application/json'},
-//         body: JSON.stringify({
-//                 username,
-//                 password
-//         })
-//     })
-//     .then((loggedInUser)=> {
-//         dispatch(login(loggedInUser));
-//     })
-// }
 
 // -------------------------------------------------------------------
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
@@ -179,9 +168,8 @@ export const login = (username, password) => dispatch => {
                 password
             })
         })
-
-        // .then(res => normalizeResponseErrors(res))
-        .then(res => res.json())
+        .then(res =>  res.json())
+        //getting the token
         .then(({authToken}) => storeAuthInfo(authToken, dispatch))
         .catch(err => {
             const {code} = err;
@@ -189,8 +177,8 @@ export const login = (username, password) => dispatch => {
                 code === 401 ? 'Incorrect username or password' : 'Unable to login, please try again';
         dispatch(authError(err));
         // return Promise.reject(
-        //     // new SubmissionError({
-        //     //     _error: message
+        //     new SubmissionError({
+        //         _error: message
         //     })
         // );
         })
@@ -215,13 +203,4 @@ export const refreshAuthtoken = () => (dispatch, getState) => {
         });
 };
 
-// -------------------------------------------------------------------
-
-//actions to consider: 
-// DELETE word
-// POST/create word
-// GET all words
-// login
-// signup
-// view/PUT word
 

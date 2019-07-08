@@ -1,13 +1,9 @@
 import React from 'react';
 
 export default function EachLetter(props) {
-
-    // listenWordSelected(event){
-    //     this.setState({
-    //         deletedWord:  event.target.value,
-    //     });
-    // }
-
+    console.log(props)
+    console.log(props._id);
+    
     return (
         <div>
             <li className="eachWord">
