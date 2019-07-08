@@ -69,9 +69,10 @@ const deleteWord = (deletedWordId) => ({
 });
 
 export const deleteSelectedWord = (deletedWordId) => dispatch => {
-    console.log(`line 72 actions deleteselectedword`);
+
+    console.log(`line 72 actions ` , {deletedWordId});
     const authToken =  localStorage.getItem(`authToken`);
-    fetch(`http://localhost:8080/delete/{deletedWordId}`,{
+    fetch(`http://localhost:8080/delete/${deletedWordId}`,{
         method: 'DELETE',
         headers: {
             'Content-Type':'application/json',
@@ -88,6 +89,7 @@ export const deleteSelectedWord = (deletedWordId) => dispatch => {
     .then((deletedWordId) => {
         console.log(deletedWordId)
         dispatch(deleteWord(deletedWordId));
+        //router to my-list
     })
 }
 
