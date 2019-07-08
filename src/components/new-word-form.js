@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import './new-word-form.css';
 
-import addNewWord from '../actions/index.js';
+import {addNewWord} from '../actions/index.js';
 // import displayWords from '../actions/index.js';
 
 class NewWord extends Component {

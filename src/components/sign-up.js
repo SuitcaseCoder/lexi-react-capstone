@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import createNewUser from '../actions/index.js';
+import {createNewUser} from '../actions/index.js';
 
 // import NavBar from './navbar';
 // import Header from './header';
@@ -74,9 +74,7 @@ class SignUpForm extends Component {
 
     handleNewUserSubmit(event){
         event.preventDefault();
-        console.log(this.state.username + this.state.password + this.state.firstName + this.state.lastName);
         this.props.dispatch(createNewUser(this.state.username, this.state.password, this.state.firstName, this.state.lastName));
-        alert('A user has signed up: ' + this.state.username + this.state.password);
     }
 
     render() {

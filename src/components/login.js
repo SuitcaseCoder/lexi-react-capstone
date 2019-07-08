@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 
-import userLogin from '../actions/index.js';
+import {login} from '../actions/index.js';
 
 
 class LoginForm extends Component {
@@ -34,8 +34,8 @@ class LoginForm extends Component {
 
     handleLoginSubmit(event){
         event.preventDefault();
-        this.props.dispatch(userLogin(this.state.username, this.state.password));
-        alert('A user has logged in: ' + this.state.username + this.state.password);
+        this.props.dispatch(login(this.state.username, this.state.password));
+        console.log('A user has logged in: ' + this.state.username + this.state.password);
     }
 
     render() {
@@ -44,7 +44,7 @@ class LoginForm extends Component {
             <h2>{this.state.title}</h2>
             <form onSubmit={this.handleLoginSubmit}>
                 <label>
-                    Email
+                    Username
                     <input type="text" value={this.state.username} onChange={this.handleUsernameChange} />
                 </label>
                 <label>
