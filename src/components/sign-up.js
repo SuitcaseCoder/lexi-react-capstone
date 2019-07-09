@@ -2,32 +2,9 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router';
 
 import {createNewUser} from '../actions/index.js';
-
-// import NavBar from './navbar';
-// import Header from './header';
-
-// export default function SignUp(){
-//     return (
-//         <div>
-//             <NavBar />
-//         <div>
-//             <h2>Sign Up for Lexi</h2>
-//             <form>
-//                 <label>Email</label>
-//                 <field>Email</field>
-
-//                 <label>Password</label>
-//                 <field>Password</field>
-
-//                 <button>Sign Up</button>
-//             </form>
-//         </div>
-//         </div>
-//     )
-// }
-
 
 class SignUpForm extends Component {
     constructor(props){
@@ -37,7 +14,8 @@ class SignUpForm extends Component {
             username: '',
             password: '',
             firstName: '',
-            lastName: ''
+            lastName: '',
+            goToCreateWord: false
         };
           
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -75,9 +53,14 @@ class SignUpForm extends Component {
     handleNewUserSubmit(event){
         event.preventDefault();
         this.props.dispatch(createNewUser(this.state.username, this.state.password, this.state.firstName, this.state.lastName));
+        this.setState({goToCreateWord: true})
     }
 
     render() {
+        if(this.state.goToCreateWord === true) {
+            return <Redirect to ="/mylist" />
+        } 
+
         return(
             <div>
                 <h2>sign up here</h2>

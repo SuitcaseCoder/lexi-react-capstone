@@ -1,6 +1,7 @@
 //------------- NEW WORD FORM ---------------- //
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router';
 
 import './new-word-form.css';
 
@@ -12,7 +13,9 @@ class NewWord extends Component {
         super(props);
         this.state = {
             word:'',
-            definition: ''
+            definition: '',
+            returnToList: false
+
         };
           
         this.handleWordChange = this.handleWordChange.bind(this);
@@ -32,15 +35,21 @@ class NewWord extends Component {
         })
     }
 
+
     handleNewWordSubmit(event){
         event.preventDefault();
         console.log(this.state.word);
         console.log(this.state.definition);
         this.props.dispatch(addNewWord(this.state.word, this.state.definition));
         console.log('thank you for feeding me letters')
-    }
+        this.setState({returnToList: true})
+    };
 
     render() {
+        if(this.state.returnToList === true) {
+            return <Redirect to ="/mylist" />
+        } 
+
         return(
             <div>
             <h2>just maybe a new word</h2>
@@ -62,7 +71,7 @@ class NewWord extends Component {
 
 const mapStateToProps = state => ({
     word: state.word,
-    definition: state.definition
+    definition: state.definition,
 
 });
 

@@ -32,6 +32,7 @@ export class ListOfWords extends React.Component {
     }
 //------------------------------------------
     render() {
+        console.log(`rerending list of words`);
         const words = this.props.words.map((word,index)=>(
             <div key={index}>
             <EachLetter {...word}  handleDeleteButton={this.handleDeleteButton}  />

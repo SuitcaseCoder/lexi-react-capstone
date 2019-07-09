@@ -23,11 +23,12 @@
   }
   
   .nav-ul-li a {
+    border: 1px solid red;
     text-decoration: none;
     color: inherit;
   }
   
-  .nav-ul-li a:hover{
+  .nav-ul-li:hover{
     text-decoration: none;
     color: #aaa;
   }

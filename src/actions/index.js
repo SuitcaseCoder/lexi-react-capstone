@@ -1,9 +1,12 @@
 import jwtDecode from 'jwt-decode';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
+// import {BrowserRouter as Route} from 'react-router-dom';
+// import { ListOfWords } from '../pages/list-of-words';
+
 // import {normalizeResponseErrors} from 
 // -------------------------------------------------------------------
 export const ADD_WORD = 'ADD_WORD';
- const addWord = (word,definition) => ({
+ const addWord = (word, definition) => ({
     type: ADD_WORD,
         word,
         definition
@@ -43,6 +46,7 @@ export const fetchWords = () => (dispatch) => {
     // https://evening-sierra-54551.herokuapp.com
     // http://localhost:8080
     const authToken =  localStorage.getItem(`authToken`);
+    console.log(`authToken =   `, authToken);
 
     fetch(`http://localhost:8080/words/protected`,{
         method: 'GET',
@@ -62,11 +66,13 @@ export const fetchWords = () => (dispatch) => {
 
 // -------------------------------------------------------------------
 
-export const DELETE_WORD = "DELETE_WORD";
-const deleteWord = (deletedWordId) => ({
-    type: DELETE_WORD,
-        deletedWordId: deletedWordId
+export const DELETE_WORD_SUCCESS = "DELETE_WORD_SUCCESS";
+const deleteWordSuccess = (updatedWordList) => ({
+    type: DELETE_WORD_SUCCESS,
+        updatedWordList
 });
+// to re-render list without deleted word
+
 
 export const deleteSelectedWord = (deletedWordId) => dispatch => {
 
@@ -82,16 +88,22 @@ export const deleteSelectedWord = (deletedWordId) => dispatch => {
                 deletedWordId,
         })
     })
-    .then(res => {
-        console.log(res);
-        return res.json();
-    })
-    .then((deletedWordId) => {
-        console.log(deletedWordId)
-        dispatch(deleteWord(deletedWordId));
-        //router to my-list
+    .then(res => res.json())
+    .then(updatedWords => {
+        // dispatch(deleteWord(deletedWordId));
+        console.log(`hey this is the delete res: `, updatedWords);
+        dispatch(deleteWordSuccess(updatedWords))
+
+        // console.log(res.status);
+        // if (res.status === 204){
+        //     //add deleteSuccess action here.
+        //     console.log(deletedWordId)
+        //     dispatch(deleteWord(deletedWordId));
+        // }
     })
 }
+
+
 
 // -------------------------------------------------------------------
 // POST - CREATE NEW USER
@@ -179,11 +191,11 @@ export const login = (username, password) => dispatch => {
             const message = 
                 code === 401 ? 'Incorrect username or password' : 'Unable to login, please try again';
         dispatch(authError(err));
-        // return Promise.reject(
-        //     new SubmissionError({
-        //         _error: message
-        //     })
-        // );
+        return Promise.reject(
+            // new SubmissionError({
+               { _error: message}
+            // })
+        );
         })
     );
 };

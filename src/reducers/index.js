@@ -13,7 +13,6 @@ const initialState = {
 
 export const lexiReducer = (state = initialState, action) => {
     if(action.type === actions.ADD_WORD){
-        console.log(action);
         return Object.assign({}, state, {
             words: [...state.words, {
                 word: action.word.word,
@@ -28,10 +27,12 @@ export const lexiReducer = (state = initialState, action) => {
         })
     }
     
-    if(action.type === actions.DELETE_WORD){
-        // return Object.assign({}, state, {
 
-        // })
+    if(action.type === actions.DELETE_WORD_SUCCESS){
+        console.log(action);
+        return Object.assign({}, state, {
+            words: action.updatedWordList
+        })
     }
 
     if(action.type === actions.CREATE_USER){

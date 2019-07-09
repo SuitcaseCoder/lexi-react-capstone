@@ -2,6 +2,8 @@
 import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router';
+
 
 import {login} from '../actions/index.js';
 
@@ -12,7 +14,8 @@ class LoginForm extends Component {
         this.state = {
             title: 'Login',
             username: '',
-            password: ''
+            password: '',
+            returnToList: false
         };
           
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -36,9 +39,14 @@ class LoginForm extends Component {
         event.preventDefault();
         this.props.dispatch(login(this.state.username, this.state.password));
         console.log('A user has logged in: ' + this.state.username + this.state.password);
+        this.setState({returnToList: true})
     }
 
     render() {
+        if(this.state.returnToList === true) {
+            return <Redirect to ="/mylist" />
+        } 
+
         return(
             <div>
             <h2>{this.state.title}</h2>
