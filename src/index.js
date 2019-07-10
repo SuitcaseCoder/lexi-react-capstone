@@ -21,7 +21,7 @@ import store from './store';
 ReactDOM.render(
     <Provider store={store}>
     <Router>
-        <Route path="/" component={LandingPage}></Route>
+        <Route path="/" component={Layout}></Route>
             <Route path="/login-page" component={LoginPage}></Route>
             <Route path="/addword" component={CreateNewWord}></Route>
             <Route path="/landingpage" component={LandingPage}></Route>
