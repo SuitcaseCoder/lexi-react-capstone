@@ -140,17 +140,25 @@ const editWordSuccess = (editedWord) => ({
     editedWord
 });
 
-export const editWord = (wordId) => dispatch => {
-    fetch(`http://localhost:8080/edit-word`,{
+// pass word as the object and log it
+export const editWord = (wordId, updatedWord, updatedDef) => dispatch => {
+    console.log(`what's being sent as params to editWord: `, wordId, updatedWord, updatedDef)
+    const authToken = localStorage.authToken;
+    fetch(`http://localhost:8080/editWord/${wordId}`,{
         method: 'PUT',
-        headers: {'Content-Type':'application/json'},
+        headers: {'Content-Type':'application/json',
+        Authorization: `Bearer ${authToken}`
+    },
         body: JSON.stringify({
-            wordId
+            wordId,
+            updatedWord,
+            updatedDef
         })
     })
     .then((editedWord)=> {
-        console.log(editedWord);
+        console.log('essentially the res here -------', editedWord);
         dispatch(editWordSuccess(editedWord));
+        dispatch(fetchWords());
     })
 }
 
