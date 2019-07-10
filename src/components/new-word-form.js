@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router';
 
+import './form.css';
 import './new-word-form.css';
 
 import {addNewWord} from '../actions/index.js';
@@ -38,10 +39,7 @@ class NewWord extends Component {
 
     handleNewWordSubmit(event){
         event.preventDefault();
-        console.log(this.state.word);
-        console.log(this.state.definition);
         this.props.dispatch(addNewWord(this.state.word, this.state.definition));
-        console.log('thank you for feeding me letters')
         this.setState({returnToList: true})
     };
 
@@ -51,16 +49,16 @@ class NewWord extends Component {
         } 
 
         return(
-            <div>
-            <h2>just maybe a new word</h2>
-            <form onSubmit={this.handleNewWordSubmit}>
+            <div className="formComponentContainer">
+            <h2 className="formTitle">Add Word</h2>
+            <form onSubmit={this.handleNewWordSubmit} className="formStyle">
                 <label>
-                    Word
-                    <input type="text" value={this.state.word} onChange={this.handleWordChange} />
+                    {/* Word */}
+                    <input placeholder="Word" type="text" value={this.state.word} onChange={this.handleWordChange} />
                 </label>
                 <label>
-                    Definition
-                    <textarea value={this.state.definition} onChange={this.handleDefChange} />
+                    {/* Definition */}
+                    <input placeholder="Definition" type="text" value={this.state.definition} onChange={this.handleDefChange} className="defInputField"/>
                 </label>
                 <input type="submit" value="Submit" onClick={this.handleSubmit} />
             </form>

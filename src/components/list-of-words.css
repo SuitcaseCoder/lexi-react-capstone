@@ -1,6 +1,26 @@
-* {
-    font-family: arial;
-    box-sizing: border-box;
-    margin: 0 auto;
-  }
-  
+.wordListPageContainer {
+  background: url(https://images.unsplash.com/photo-1518169998863-07b9ca9294ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60) repeat;
+  background-color: #3d3d3f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #f6f5f3;
+  padding: 45px;
+}
+
+.wordListTitle{
+  font-family: 'Alegreya', serif;
+  font-size: 48px;
+  color: #3d3d3f
+}
+
+.wordListContainer{
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  /* align-content: space-around; */
+  padding: 20px 0;
+  width: 100%;
+  justify-content: flex-start;
+  background-color: #f6f5f3;
+}

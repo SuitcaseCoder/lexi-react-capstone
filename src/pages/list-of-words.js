@@ -10,6 +10,9 @@ import EachLetter from '../components/each-letter.js';
 // import LettersList from '../components/letters-list';
 
 import '../components/list-of-words.css';
+import '../components/form.css';
+import '../components/new-word-form.css';
+
 
 export class ListOfWords extends React.Component {
     constructor(props){
@@ -56,7 +59,6 @@ export class ListOfWords extends React.Component {
     }
 
     handleEditButton(wordId, word, def, event){
-        console.log('checking for word Id in listofwords...', wordId, word, def);
         event.preventDefault();
         this.setState({
             isEditing: true,
@@ -68,7 +70,6 @@ export class ListOfWords extends React.Component {
     }
 
     handleSubmitEditButton(event, wordId, updatedWord, updatedDef){
-        console.log(`params for edit submit`, wordId, updatedWord, updatedDef);
         event.preventDefault();
         this.props.dispatch(editWord(wordId, updatedWord, updatedDef));
         this.setState({
@@ -79,32 +80,33 @@ export class ListOfWords extends React.Component {
     render() {
 
         const words = this.props.words.map((word,index)=>(
-            <div key={index}>
+            // <div key={index}>
             <EachLetter {...word}  handleDeleteButton={this.handleDeleteButton}  handleEditButton={this.handleEditButton}/>
-            </div>
+            // </div>
         ));
 
     
         if(this.state.isEditing === false){
             return (
-            <div className="wordList">
-            <h2>all of my words</h2>
-            <ul>
+            <div className="wordListPageContainer">
+            <h2 className="wordListTitle">Words</h2>
+            <ul className="wordListContainer">
                 {words}
             </ul>
             </div> )
 
         } else {
             return ( 
-                <div className="editWordForm">
-                    <form onSubmit={this.handleSubmitEditButton}>
+                <div className="formComponentContainer">
+                    <h2 className="formTitle">Edit</h2>
+                    <form onSubmit={this.handleSubmitEditButton} className="formStyle">
                     <label>
-                    Word
-                    <input type="text" value={this.state.editingWord} onChange={this.handleUpdatedWord} />
+                    {/* Word */}
+                    <input placeholder="Word" type="text" value={this.state.editingWord} onChange={this.handleUpdatedWord} />
                     </label>
                     <label>
-                    Definition
-                    <textarea value={this.state.editingDef} onChange={this.handleUpdatedDef} />
+                    {/* Definition */}
+                    <input placeholder="Definition" type="text" value={this.state.editingDef} onChange={this.handleUpdatedDef} className="defInputField"/>
                     </label>
                     <input id={this.state.editingWordId} type="submit" value="Submit" onClick={(e) => this.handleSubmitEditButton(e, this.state.editingWordId, this.state.editingWord, this.state.editingDef)} />
                     </form> 

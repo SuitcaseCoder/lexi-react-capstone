@@ -1,7 +1,7 @@
 //------------- SIGNUP PAGE ---------------- //
 
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 import Signup from '../components/sign-up';
 
@@ -12,9 +12,8 @@ class SignupPage extends Component {
     render(){
         
         return (
-                <div className="signupPageContainer">
+                <div className="pageContainer">
                     <Signup />
-                    <div className="loginOnSignupPage">already have an account? <Link to="/login-page" className="alreadyHaveLogin">login</Link></div>
                 </div>
         )
     }

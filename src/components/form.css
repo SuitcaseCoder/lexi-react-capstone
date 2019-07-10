@@ -1,17 +1,17 @@
-.signupComponentContainer{
+.formComponentContainer{
     display: flex;
     flex-direction: column;
     padding: 20px 0;
     min-width: 65%;
 }
 
-.signupFormTitle{
+.formTitle{
     font-family: 'Alegreya', serif;
     font-size: 48px;
     color: #3d3d3f
 }
 
-.signupForm{
+.formStyle{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -21,13 +21,13 @@
     min-width: 50%;
 }
 
-.signupForm>label {
+.formStyle>label {
     width: 90%;
     padding: 10px 0;
 }
 
 
-input[type=text]{
+form input[type=text]{
     /* outline: none; */
     border-bottom: 1px, solid rgba(0,0,0,0.4);
     padding: 8px;

@@ -3,10 +3,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router';
+import {Link} from 'react-router-dom';
 
 import {createNewUser} from '../actions/index.js';
 
-import './signup.css';
+import './form.css';
 
 class SignUpForm extends Component {
     constructor(props){
@@ -64,9 +65,9 @@ class SignUpForm extends Component {
         } 
 
         return(
-            <div className="signupComponentContainer">
-            <h2 className="signupFormTitle">{this.state.title}</h2>
-            <form onSubmit={this.handleNewUserSubmit} className="signupForm">
+            <div className="formComponentContainer">
+            <h2 className="formTitle">{this.state.title}</h2>
+            <form onSubmit={this.handleNewUserSubmit} className="formStyle">
                 <label>
                     {/* Username */}
                     <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
@@ -85,6 +86,7 @@ class SignUpForm extends Component {
                 </label>
                 <input type="submit" value="sign up" />
             </form>
+            <div className="loginOnSignupPage">already have an account? <Link to="/login-page" className="alreadyHaveLogin">login</Link></div>
             </div>
         )
     }

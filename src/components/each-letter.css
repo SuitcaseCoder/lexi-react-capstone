@@ -1,27 +1,69 @@
+.eachWord {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 16px;
+  font-size: 21px;
+  text-align: left;
+  width: 65%;
+  background-color: #f6f5f3;
+}
 
-.letter-section {
-    min-height: 200px;
-    padding: 6% 0;
-    max-width: 75%;
-    margin: 0 auto;
-  }
-  
-  .letter-section h2 {
-    border-bottom: 1.5px solid black;
-  }
-  
-  .letter-section ul li {
-    list-style-type: none;
-    padding: 5px 0;
-    word-wrap: break-word;
-  }
-  
-  .letter-section ul li a{
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .letter-section ul li a:hover{
-    color: #aaa;
-  }
-  
+.eachWord > * {
+  flex: 1 100%;
+}
+
+.wordTitle{
+  order: 1;
+  background-color: #f9f8fd;
+  color: #3d3d3f;
+  outline: 1px solid rgba(125,206,148, 0.4);
+   /* rgba(0,0,0,0.1); */
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 8px;
+  margin: 2px;
+  padding-left: 15px;
+  /* width: 100%; */
+}
+
+.wordDefinition{
+  order: 2;
+  background-color: #f9f8fd;
+  color: #3d3d3f;
+  outline: 1px solid rgba(125,206,148, 0.4);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 8px;
+  margin: 2px;
+  padding-left: 15px;
+
+}
+
+#deleteWordBtn{
+  flex: 0.5;
+  padding: 4px;
+  margin: 5px;
+  outline: 1px solid rgba(61,61,63,0.4);
+  background-color: #f9f8fd;
+  order: 3;
+}
+
+#deleteWordBtn:hover{
+  background-color: #3d3d3f;
+  color: white;
+  outline: none;
+}
+
+#editWordBtn{
+  flex: 0.5;
+  padding: 4px;
+  margin: 5px;
+  outline: 1px solid rgba(61,61,63,0.4);
+  background-color: #f9f8fd;
+  order: 4;
+}
+
+#editWordBtn:hover{
+  background-color: #3d3d3f;
+  color: white;
+  outline: none;
+}

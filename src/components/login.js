@@ -7,6 +7,7 @@ import {Redirect} from 'react-router';
 
 import {login} from '../actions/index.js';
 
+import './form.css';
 
 class LoginForm extends Component {
     constructor(props){
@@ -48,16 +49,16 @@ class LoginForm extends Component {
         } 
 
         return(
-            <div>
-            <h2>{this.state.title}</h2>
-            <form onSubmit={this.handleLoginSubmit}>
+            <div className="formComponentContainer">
+            <h2 className="formTitle">{this.state.title}</h2>
+            <form onSubmit={this.handleLoginSubmit} className="formStyle">
                 <label>
-                    Username
-                    <input type="text" value={this.state.username} onChange={this.handleUsernameChange} />
+                    {/* Username */}
+                    <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
                 </label>
                 <label>
-                    Password
-                    <input type="text" value={this.state.password} onChange={this.handlePassChange} />
+                    {/* Password */}
+                    <input placeholder="Password" type="text" value={this.state.password} onChange={this.handlePassChange} />
                 </label>
                 <input type="submit" value="login" />
             </form>

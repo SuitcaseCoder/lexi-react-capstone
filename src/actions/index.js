@@ -14,7 +14,7 @@ export const ADD_WORD = 'ADD_WORD';
 
 export const addNewWord = (word, definition) => dispatch => {
     const authToken =  localStorage.getItem(`authToken`);
-    fetch(`http://localhost:8080/create-word/protected`,{
+    fetch(`https://evening-sierra-54551.herokuapp.com/create-word/protected`,{
         method: 'POST',
         headers: {
             'Content-Type':'application/json',

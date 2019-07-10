@@ -9,12 +9,9 @@ import '../components/login-page.css';
 class LoginPage extends Component {
     render(){
         return (
-                <div>
-                    <h1>Login to your Lexi Account</h1>
-                <section>
-                    <Login />
-                </section>
-                </div>
+            <div className="pageContainer">
+                <Login />
+            </div>
         )
     }
 

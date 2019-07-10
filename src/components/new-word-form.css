@@ -1,34 +1,3 @@
-
-.word-Form {
-    min-height: 200px;
-    padding: 6% 0;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    /* align-content: space-around; */
-    margin: 0 auto;
-    margin-top: 20%;
-    max-width: 45%;
-    background-color: #aaa;
-  }
-  
-  .word-details {
-    align-self: center;
-    min-width: 50%;
-  }
-  
-  #word-definition {
-    flex-grow: 2;
-  }
-  
-  .word-buttons{
-    margin: 5px 0;
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-evenly; */
-  }
-  
-  .word-button{
-    border: 1px solid green;
-    /* padding: 0 15px; */
+  .defInputField {
+    height: 90px;
   }

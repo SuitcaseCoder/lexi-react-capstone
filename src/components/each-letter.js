@@ -1,19 +1,20 @@
 import React from 'react';
+import './each-letter.css';
 
 export default function EachLetter(props) {
 
     const letterId = props._id;
     return (
-        <div>
+        // <div>
             <li className="eachWord">
                 <div className="wordTitle">{props.word}</div>
-                <div className="wordDefinition">{props.definition}</div>
-                <button className="deleteThisWord" onClick={(e) => props.handleDeleteButton(letterId, e)}
+                <div className="liDiv" className="wordDefinition">{props.definition}</div>
+                <button className="deleteThisWord" id="deleteWordBtn" onClick={(e) => props.handleDeleteButton(letterId, e)}
                 >delete</button>
-                <button className="editThisWord" onClick={(e) => props.handleEditButton(letterId, props.word, props.definition, e)}
+                <button className="editThisWord" id="editWordBtn" onClick={(e) => props.handleEditButton(letterId, props.word, props.definition, e)}
                 >edit</button>
             </li>
-        </div>
+        // </div>
         );      
 }
 
