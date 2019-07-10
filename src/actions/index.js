@@ -46,7 +46,6 @@ export const fetchWords = () => (dispatch) => {
     // https://evening-sierra-54551.herokuapp.com
     // http://localhost:8080
     const authToken =  localStorage.getItem(`authToken`);
-    console.log(`authToken =   `, authToken);
 
     fetch(`http://localhost:8080/words/protected`,{
         method: 'GET',
@@ -107,6 +106,7 @@ export const deleteSelectedWord = (deletedWordId) => dispatch => {
 
 // -------------------------------------------------------------------
 // POST - CREATE NEW USER
+//create user success
 export const CREATE_USER = "CREATE_USER";
 const createUser = (username, password, firstName, lastName) => ({
     type: CREATE_USER,
@@ -133,6 +133,28 @@ export const createNewUser = (username, password, firstName, lastName) => dispat
     })
 }
 // -------------------------------------------------------------------
+// HANDLE EDIT BUTTON - PUT REQUEST
+export const EDIT_WORD_SUCCESS = "EDIT_WORD_SUCCESS";
+const editWordSuccess = (editedWord) => ({
+    type: EDIT_WORD_SUCCESS,
+    editedWord
+});
+
+export const editWord = (wordId) => dispatch => {
+    fetch(`http://localhost:8080/edit-word`,{
+        method: 'PUT',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+            wordId
+        })
+    })
+    .then((editedWord)=> {
+        console.log(editedWord);
+        dispatch(editWordSuccess(editedWord));
+    })
+}
+
+
 
 // -------------------------------------------------------------------
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';

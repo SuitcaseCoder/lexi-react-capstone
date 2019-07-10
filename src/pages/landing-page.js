@@ -12,16 +12,13 @@ import '../components/landing-page.css';
 
 class LandingPage extends Component {
     render(){
-        return(
-            
+        return( 
             <div>
-                <section>
                 <Header />
                 <HowTo />
-                <div>
+                <div className="linkToSignup">
                     <Link to="/signup"><button>Get Started</button></Link>
                 </div>
-                </section>
             </div>
         )
     }

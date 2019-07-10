@@ -2,6 +2,7 @@
     font-family: arial;
     box-sizing: border-box;
     margin: 0 auto;
+    background-color: #f9f8fd;
   }
   
   nav {
@@ -17,18 +18,19 @@
     padding: 10px;
   }
   
-  .nav-ul-li {
+  nav ul li {
+    list-style-type: none;
     display: inline-block;
     padding: 5px 10px;
   }
   
-  .nav-ul-li a {
-    border: 1px solid red;
+  .navLink {
     text-decoration: none;
-    color: inherit;
+    font-size: 18px;
+    color: #3d3d3f;
   }
   
-  .nav-ul-li:hover{
+  .navLink:hover{
     text-decoration: none;
     color: #aaa;
   }

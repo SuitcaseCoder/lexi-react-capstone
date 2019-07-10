@@ -74,5 +74,13 @@ export const lexiReducer = (state = initialState, action) => {
         });
     }
     
+    if(action.type === actions.EDIT_WORD_SUCCESS){
+        return Object.assign({}, state, {
+            //updated word/s
+        })
+    }
     return state 
 }
+
+// ---------------------------------------------------
+// handle edit word reducer. 

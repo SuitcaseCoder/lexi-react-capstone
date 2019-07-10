@@ -14,21 +14,21 @@ render() {
 
       return (
                 <nav>
-                    <ul>
+                    <ul className="navBarUl">
                         <li > 
-                            <Link to="/login-page">Login</Link>
+                            <Link to="/login-page" className="navLink">Login</Link>
                         </li>
                         <li>
-                        <Link to="addword"><button>Add Word</button></Link>
+                        <Link to="addword" className="navLink">Add Word</Link>
                         </li>
                         <li>
-                        <Link to="homepage">Lexi</Link>
+                        <Link to="homepage" className="navLink">Lexi</Link>
                         </li>
                         <li>
-                        <Link to="landingpage">How To</Link>
+                        <Link to="landingpage" className="navLink">How To</Link>
                         </li>
                         <li>
-                        <Link to="mylist">my Lexi list</Link>
+                        <Link to="mylist" className="navLink">my Lexi list</Link>
                         </li>
                     </ul>
                 </nav>

@@ -1,5 +1,13 @@
 header {
     text-align: center;
-    padding: 75px 0;
-    min-height: 150px;
+    /* padding: 75px 0; */
+    /* min-height: 175px; */
+    /* background-color: #f9f8fd; */
+  }
+
+  #logo-banner {
+    min-height: 200px;
+    padding: 95px 0;
+    font-size: 108px;
+
   }
