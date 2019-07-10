@@ -6,6 +6,8 @@ import {Redirect} from 'react-router';
 
 import {createNewUser} from '../actions/index.js';
 
+import './signup.css';
+
 class SignUpForm extends Component {
     constructor(props){
         super(props);
@@ -62,25 +64,24 @@ class SignUpForm extends Component {
         } 
 
         return(
-            <div>
-                <h2>sign up here</h2>
-            <h2>{this.state.title}</h2>
-            <form onSubmit={this.handleNewUserSubmit}>
+            <div className="signupComponentContainer">
+            <h2 className="signupFormTitle">{this.state.title}</h2>
+            <form onSubmit={this.handleNewUserSubmit} className="signupForm">
                 <label>
-                    Username
-                    <input type="text" value={this.state.username} onChange={this.handleUsernameChange} />
+                    {/* Username */}
+                    <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
                 </label>
                 <label>
-                    Password
-                    <input type="text" value={this.state.password} onChange={this.handlePasswordChange} />
+                    {/* Password */}
+                    <input placeholder="Password" type="text" value={this.state.password} onChange={this.handlePasswordChange} />
                 </label>
                 <label>
-                    First Name
-                    <input type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+                    {/* First Name */}
+                    <input placeholder="First Name" type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} />
                 </label>
                 <label>
-                    Last Name
-                    <input type="text" value={this.state.lastName} onChange={this.handleLastNameChange} />
+                    {/* Last Name */}
+                    <input placeholder="Last Name" type="text" value={this.state.lastName} onChange={this.handleLastNameChange} />
                 </label>
                 <input type="submit" value="sign up" />
             </form>

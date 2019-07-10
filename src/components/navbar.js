@@ -15,7 +15,7 @@ render() {
       return (
                 <nav>
                     <ul className="navBarUl">
-                        <li > 
+                        <li> 
                             <Link to="/login-page" className="navLink">Login</Link>
                         </li>
                         <li>

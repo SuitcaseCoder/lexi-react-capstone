@@ -3,11 +3,19 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    background-color: #f6f5f3;
   }
   
   .howToSteps{
+    display: flex;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, .2);
     border: 2px solid  #7dce94;
     padding: 10px;
-    align-items: baseline;
-    max-width: 30%;
+    max-width: 25%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 21px;
+    color: #3d3d3f;
+    align-items: center;
+    /* text-align: center; */
+    justify-content: center;
   }
