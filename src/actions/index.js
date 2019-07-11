@@ -47,7 +47,7 @@ export const fetchWords = () => (dispatch) => {
     // http://localhost:8080
     const authToken =  localStorage.getItem(`authToken`);
 
-    fetch(`http://localhost:8080/words/protected`,{
+    fetch(`https://evening-sierra-54551.herokuapp.com/words/protected`,{
         method: 'GET',
         headers: {
             'Content-Type':'application/json',
@@ -77,7 +77,7 @@ export const deleteSelectedWord = (deletedWordId) => dispatch => {
 
     console.log(`line 72 actions ` , {deletedWordId});
     const authToken =  localStorage.getItem(`authToken`);
-    fetch(`http://localhost:8080/delete/${deletedWordId}`,{
+    fetch(`https://evening-sierra-54551.herokuapp.com/delete/${deletedWordId}`,{
         method: 'DELETE',
         headers: {
             'Content-Type':'application/json',
@@ -117,7 +117,7 @@ const createUser = (username, password, firstName, lastName) => ({
 });
 
 export const createNewUser = (username, password, firstName, lastName) => dispatch => {
-    fetch(`http://localhost:8080/create-user`,{
+    fetch(`https://evening-sierra-54551.herokuapp.com/create-user`,{
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({
@@ -144,7 +144,7 @@ const editWordSuccess = (editedWord) => ({
 export const editWord = (wordId, updatedWord, updatedDef) => dispatch => {
     console.log(`what's being sent as params to editWord: `, wordId, updatedWord, updatedDef)
     const authToken = localStorage.authToken;
-    fetch(`http://localhost:8080/editWord/${wordId}`,{
+    fetch(`https://evening-sierra-54551.herokuapp.com/editWord/${wordId}`,{
         method: 'PUT',
         headers: {'Content-Type':'application/json',
         Authorization: `Bearer ${authToken}`
@@ -203,7 +203,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 export const login = (username, password) => dispatch => {
     dispatch(authRequest());
     return(
-        fetch(`http://localhost:8080/api/auth/login`, {
+        fetch(`https://evening-sierra-54551.herokuapp.com/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -233,7 +233,7 @@ export const login = (username, password) => dispatch => {
 export const refreshAuthtoken = () => (dispatch, getState) => {
     dispatch(authRequest());
     const authToken = getState().auth.authToken;
-    return fetch(`http://localhost:8080/auth/refresh`, {
+    return fetch(`https://evening-sierra-54551.herokuapp.com/auth/refresh`, {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${authToken}`
