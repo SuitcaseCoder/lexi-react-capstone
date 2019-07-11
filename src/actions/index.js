@@ -4,7 +4,9 @@ import {saveAuthToken, clearAuthToken} from '../local-storage';
 // import { ListOfWords } from '../pages/list-of-words';
 
 // import {normalizeResponseErrors} from 
-// -------------------------------------------------------------------
+
+
+// --------------------ADD WORD--------------------
 export const ADD_WORD = 'ADD_WORD';
  const addWord = (word, definition) => ({
     type: ADD_WORD,
@@ -34,8 +36,7 @@ export const addNewWord = (word, definition) => dispatch => {
     })
 }
 
-// -------------------------------------------------------------------
-// GET WORDS - change to require tokens
+// -----------------FETCH WORDS SUCCESS-------------------
 export const FETCH_WORDS_SUCCESS = 'FETCH_WORDS_SUCCESS';
 export const fetchWordsSuccess = words => ({
     type: FETCH_WORDS_SUCCESS,
@@ -63,14 +64,13 @@ export const fetchWords = () => (dispatch) => {
         });
 };
 
-// -------------------------------------------------------------------
+// ------------------DELETE WORD SUCCESS----------------------
 
 export const DELETE_WORD_SUCCESS = "DELETE_WORD_SUCCESS";
 const deleteWordSuccess = (updatedWordList) => ({
     type: DELETE_WORD_SUCCESS,
         updatedWordList
 });
-// to re-render list without deleted word
 
 
 export const deleteSelectedWord = (deletedWordId) => dispatch => {
@@ -104,9 +104,8 @@ export const deleteSelectedWord = (deletedWordId) => dispatch => {
 
 
 
-// -------------------------------------------------------------------
-// POST - CREATE NEW USER
-//create user success
+// ------------------CREATE USER---------------------
+
 export const CREATE_USER = "CREATE_USER";
 const createUser = (username, password, firstName, lastName) => ({
     type: CREATE_USER,
@@ -116,8 +115,20 @@ const createUser = (username, password, firstName, lastName) => ({
         lastName
 });
 
+export const SIGNUP_ERROR = 'SIGNUP_ERROR';
+export const signupError = error => ({
+    type: SIGNUP_ERROR,
+    error
+});
+
+// export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+// export const signupSuccess = createdUser => ({
+//     type: SIGNUP_SUCCESS,
+//     createdUser
+// });
+
 export const createNewUser = (username, password, firstName, lastName) => dispatch => {
-    fetch(`https://evening-sierra-54551.herokuapp.com/create-user`,{
+    fetch(`http://localhost:8080/create-user`,{
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({
@@ -127,13 +138,38 @@ export const createNewUser = (username, password, firstName, lastName) => dispat
             lastName
         })
     })
+    // .then(res=> res.json)
     .then((createdUser)=> {
         console.log(createdUser);
         dispatch(createUser(createdUser));
     })
+    .catch(err => {
+        console.log('made it to the err', err)
+        const {reason, message, location} = err;
+        if (reason === 'ValidationError'){
+            console.log('line 158 ... ', message, location)
+            dispatch(signupError(message,location))
+        }
+        // const message = 
+        //     code === 422 ? 'Incorrect username or password' : 'Unable to login, please try again';
+        //     console.log(message);
+        //     dispatch(signupError(message));
+    })
 }
-// -------------------------------------------------------------------
-// HANDLE EDIT BUTTON - PUT REQUEST
+
+// .catch(err => {
+//     const {reason, message, location} = err;
+//     if (reason === 'ValidationError') {
+//         // Convert ValidationErrors into SubmissionErrors for Redux Form
+//         return Promise.reject(
+//             new SubmissionError({
+//                 [location]: message
+//             })
+//         );
+//     }
+// });
+// ---------------EDIT WORD SUCCESS----------------------
+
 export const EDIT_WORD_SUCCESS = "EDIT_WORD_SUCCESS";
 const editWordSuccess = (editedWord) => ({
     type: EDIT_WORD_SUCCESS,
@@ -164,7 +200,7 @@ export const editWord = (wordId, updatedWord, updatedDef) => dispatch => {
 
 
 
-// -------------------------------------------------------------------
+// --------------- AUTH CHECKS --------------------
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
     type: SET_AUTH_TOKEN,
@@ -199,6 +235,9 @@ const storeAuthInfo = (authToken, dispatch) => {
     dispatch(authSuccess(decodedToken.user));
     saveAuthToken(authToken);
 };
+
+
+// --------------- LOGIN --------------------
 
 export const login = (username, password) => dispatch => {
     dispatch(authRequest());

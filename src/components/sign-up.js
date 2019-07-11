@@ -18,7 +18,7 @@ class SignUpForm extends Component {
             password: '',
             firstName: '',
             lastName: '',
-            goToCreateWord: false
+            // goToCreateWord: false
         };
           
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -56,7 +56,7 @@ class SignUpForm extends Component {
     handleNewUserSubmit(event){
         event.preventDefault();
         this.props.dispatch(createNewUser(this.state.username, this.state.password, this.state.firstName, this.state.lastName));
-        this.setState({goToCreateWord: true})
+        // this.setState({goToCreateWord: true})
     }
 
     render() {
@@ -64,8 +64,13 @@ class SignUpForm extends Component {
             return <Redirect to ="/mylist" />
         } 
 
+        if(this.props.signupProcess === 'done') {
+            return <Redirect to ="/mylist" />
+        } else if(this.props.signupProcess === 'form'){
+
         return(
             <div className="formComponentContainer">
+            <div className="signupErr" value={this.props.error}></div>
             <h2 className="formTitle">{this.state.title}</h2>
             <form onSubmit={this.handleNewUserSubmit} className="formStyle">
                 <label>
@@ -89,16 +94,28 @@ class SignUpForm extends Component {
             <div className="loginOnSignupPage">already have an account? <Link to="/login-page" className="alreadyHaveLogin">login</Link></div>
             </div>
         )
+        }
     }
 }
 
 // export default SignUpForm;
 const mapStateToProps = state => ({
-    username: state.username,
-    password: state.password,
-    firstName: state.firstName,
-    lastName: state.lastName
+    // username: state.username,
+    // password: state.password,
+    // firstName: state.firstName,
+    // lastName: state.lastName,
+    signupProcess: state.signupProcess,
+    error: state.error
 
 });
+
+// const mapStateToProps = state => ({
+//     // username: state.username,
+//     // password: state.password,
+//     //left creating prop, right getting from state
+//     loginProcess: state.loginProcess,
+//     error: state.error
+// });
+
 
 export default connect(mapStateToProps)(SignUpForm);
