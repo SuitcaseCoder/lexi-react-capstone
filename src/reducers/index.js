@@ -8,10 +8,12 @@ const initialState = {
     authToken: null,
     currentuser: null,
     loading: false,
+    loginProcess: 'form',
     error: null
 };
 
 export const lexiReducer = (state = initialState, action) => {
+    console.log('action .... ', action);
     if(action.type === actions.ADD_WORD){
         return Object.assign({}, state, {
             words: [...state.words, {
@@ -64,11 +66,19 @@ export const lexiReducer = (state = initialState, action) => {
         });
     } else if (action.type === actions.AUTH_REQUEST) {
         return Object.assign({}, state, {
+            loginProcess: 'spinning',
             loading: true,
             error: null
         });
     } else if (action.type === actions.AUTH_SUCCESS) {
         return Object.assign({}, state, {
+            loginProcess: 'done',
+            loading: false, 
+            error: null
+        });
+    } else if (action.type === actions.AUTH_ERROR){
+        return Object.assign({}, state, {
+            loginProcess: 'form',
             loading: false, 
             error: action.error
         });

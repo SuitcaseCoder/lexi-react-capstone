@@ -16,7 +16,6 @@ class LoginForm extends Component {
             title: 'Login',
             username: '',
             password: '',
-            returnToList: false
             // ,error: '';
         };
           
@@ -40,37 +39,48 @@ class LoginForm extends Component {
     handleLoginSubmit(event){
         event.preventDefault();
         this.props.dispatch(login(this.state.username, this.state.password));
-        this.setState({returnToList: true})
     }
 
     render() {
-        if(this.state.returnToList === true) {
+        
+        if(this.props.loginProcess === 'done') {
             return <Redirect to ="/mylist" />
-        } 
+        } else if(this.props.loginProcess === 'spinning'){
+            return (
+                <div className="loading">login loading</div>
+            )
+        } else if(this.props.loginProcess === 'form'){
 
-        return(
-            <div className="formComponentContainer">
-            <h2 className="formTitle">{this.state.title}</h2>
-            <form onSubmit={this.handleLoginSubmit} className="formStyle">
-                <label>
-                    {/* Username */}
-                    <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
-                </label>
-                <label>
-                    {/* Password */}
-                    <input placeholder="Password" type="text" value={this.state.password} onChange={this.handlePassChange} />
-                </label>
-                <input type="submit" value="login" />
-            </form>
-            </div>
-        )
+            return(
+                //redux form vs not
+                <div className="formComponentContainer">
+                <div className="loginErr" value={this.props.error}></div>
+                <h2 className="formTitle">{this.state.title}</h2>
+                <form onSubmit={this.handleLoginSubmit} className="formStyle">
+                    <label>
+                        {/* Username */}
+                        <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
+                    </label>
+                    <label>
+                        {/* Password */}
+                        <input placeholder="Password" type="text" value={this.state.password} onChange={this.handlePassChange} />
+                    </label>
+                    <input type="submit" value="login" />
+                </form>
+                </div>
+            )
+        }
     }
 }
 
 
+//this is redux state . provides info from redux store to component. 
 const mapStateToProps = state => ({
-    username: state.username,
-    password: state.password,
+    // username: state.username,
+    // password: state.password,
+    //left creating prop, right getting from state
+    loginProcess: state.loginProcess,
+    error: state.error
 });
 
 export default connect(mapStateToProps)(LoginForm);

@@ -222,8 +222,7 @@ export const login = (username, password) => dispatch => {
             const {code} = err;
             const message = 
                 code === 401 ? 'Incorrect username or password' : 'Unable to login, please try again';
-        dispatch(authError(err));
-        return Promise.reject();
+            dispatch(authError(message));
         })
     );
 };
