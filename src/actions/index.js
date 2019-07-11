@@ -3,8 +3,8 @@ import {saveAuthToken, clearAuthToken} from '../local-storage';
 // import {BrowserRouter as Route} from 'react-router-dom';
 // import { ListOfWords } from '../pages/list-of-words';
 
-// import {normalizeResponseErrors} from 
-
+import {normalizeResponse} from '../normalizeResponse';
+import { API_BASE_URL } from "../config";
 
 // --------------------ADD WORD--------------------
 export const ADD_WORD = 'ADD_WORD';
@@ -16,7 +16,7 @@ export const ADD_WORD = 'ADD_WORD';
 
 export const addNewWord = (word, definition) => dispatch => {
     const authToken =  localStorage.getItem(`authToken`);
-    fetch(`https://evening-sierra-54551.herokuapp.com/create-word/protected`,{
+    fetch(`${API_BASE_URL}/create-word/protected`,{
         method: 'POST',
         headers: {
             'Content-Type':'application/json',
@@ -44,11 +44,11 @@ export const fetchWordsSuccess = words => ({
 });
 
 export const fetchWords = () => (dispatch) => {
-    // https://evening-sierra-54551.herokuapp.com
+    // ${API_BASE_URL}
     // http://localhost:8080
     const authToken =  localStorage.getItem(`authToken`);
 
-    fetch(`https://evening-sierra-54551.herokuapp.com/words/protected`,{
+    fetch(`${API_BASE_URL}/words/protected`,{
         method: 'GET',
         headers: {
             'Content-Type':'application/json',
@@ -74,10 +74,8 @@ const deleteWordSuccess = (updatedWordList) => ({
 
 
 export const deleteSelectedWord = (deletedWordId) => dispatch => {
-
-    console.log(`line 72 actions ` , {deletedWordId});
     const authToken =  localStorage.getItem(`authToken`);
-    fetch(`https://evening-sierra-54551.herokuapp.com/delete/${deletedWordId}`,{
+    fetch(`${API_BASE_URL}/delete/${deletedWordId}`,{
         method: 'DELETE',
         headers: {
             'Content-Type':'application/json',
@@ -90,7 +88,6 @@ export const deleteSelectedWord = (deletedWordId) => dispatch => {
     .then(res => res.json())
     .then(updatedWords => {
         // dispatch(deleteWord(deletedWordId));
-        console.log(`hey this is the delete res: `, updatedWords);
         dispatch(deleteWordSuccess(updatedWords))
 
         // console.log(res.status);
@@ -128,7 +125,7 @@ export const signupError = error => ({
 // });
 
 export const createNewUser = (username, password, firstName, lastName) => dispatch => {
-    fetch(`http://localhost:8080/create-user`,{
+    fetch(`${API_BASE_URL}/create-user`,{
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({
@@ -138,16 +135,14 @@ export const createNewUser = (username, password, firstName, lastName) => dispat
             lastName
         })
     })
-    // .then(res=> res.json)
+    .then(res => normalizeResponse(res))
+    .then(res=> res.json())
     .then((createdUser)=> {
-        console.log(createdUser);
         dispatch(createUser(createdUser));
     })
     .catch(err => {
-        console.log('made it to the err', err)
         const {reason, message, location} = err;
         if (reason === 'ValidationError'){
-            console.log('line 158 ... ', message, location)
             dispatch(signupError(message,location))
         }
         // const message = 
@@ -178,9 +173,8 @@ const editWordSuccess = (editedWord) => ({
 
 // pass word as the object and log it
 export const editWord = (wordId, updatedWord, updatedDef) => dispatch => {
-    console.log(`what's being sent as params to editWord: `, wordId, updatedWord, updatedDef)
     const authToken = localStorage.authToken;
-    fetch(`https://evening-sierra-54551.herokuapp.com/editWord/${wordId}`,{
+    fetch(`${API_BASE_URL}/editWord/${wordId}`,{
         method: 'PUT',
         headers: {'Content-Type':'application/json',
         Authorization: `Bearer ${authToken}`
@@ -192,7 +186,6 @@ export const editWord = (wordId, updatedWord, updatedDef) => dispatch => {
         })
     })
     .then((editedWord)=> {
-        console.log('essentially the res here -------', editedWord);
         dispatch(editWordSuccess(editedWord));
         dispatch(fetchWords());
     })
@@ -242,7 +235,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 export const login = (username, password) => dispatch => {
     dispatch(authRequest());
     return(
-        fetch(`https://evening-sierra-54551.herokuapp.com/api/auth/login`, {
+        fetch(`${API_BASE_URL}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -269,7 +262,7 @@ export const login = (username, password) => dispatch => {
 export const refreshAuthtoken = () => (dispatch, getState) => {
     dispatch(authRequest());
     const authToken = getState().auth.authToken;
-    return fetch(`https://evening-sierra-54551.herokuapp.com/auth/refresh`, {
+    return fetch(`${API_BASE_URL}/auth/refresh`, {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${authToken}`

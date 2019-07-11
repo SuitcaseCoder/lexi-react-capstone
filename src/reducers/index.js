@@ -32,7 +32,6 @@ export const lexiReducer = (state = initialState, action) => {
     
 
     if(action.type === actions.DELETE_WORD_SUCCESS){
-        console.log(action);
         return Object.assign({}, state, {
             words: action.updatedWordList
         })

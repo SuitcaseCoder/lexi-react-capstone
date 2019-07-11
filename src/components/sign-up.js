@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router';
 import {Link} from 'react-router-dom';
 
+
 import {createNewUser} from '../actions/index.js';
 
 import './form.css';
@@ -60,12 +61,12 @@ class SignUpForm extends Component {
     }
 
     render() {
-        if(this.state.goToCreateWord === true) {
-            return <Redirect to ="/mylist" />
-        } 
+        // if(this.state.goToCreateWord === true) {
+        //     return <Redirect to ="/mylist" />
+        // } 
 
         if(this.props.signupProcess === 'done') {
-            return <Redirect to ="/mylist" />
+            return <Redirect to ="/login-page" />
         } else if(this.props.signupProcess === 'form'){
 
         return(
