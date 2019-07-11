@@ -17,6 +17,7 @@ class LoginForm extends Component {
             username: '',
             password: '',
             returnToList: false
+            // ,error: '';
         };
           
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -39,7 +40,6 @@ class LoginForm extends Component {
     handleLoginSubmit(event){
         event.preventDefault();
         this.props.dispatch(login(this.state.username, this.state.password));
-        console.log('A user has logged in: ' + this.state.username + this.state.password);
         this.setState({returnToList: true})
     }
 

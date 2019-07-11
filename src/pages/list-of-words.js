@@ -81,7 +81,7 @@ export class ListOfWords extends React.Component {
 
         const words = this.props.words.map((word,index)=>(
             // <div key={index}>
-            <EachLetter {...word}  handleDeleteButton={this.handleDeleteButton}  handleEditButton={this.handleEditButton}/>
+            <EachLetter {...word} key={index} handleDeleteButton={this.handleDeleteButton}  handleEditButton={this.handleEditButton}/>
             // </div>
         ));
 
