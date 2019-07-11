@@ -32,7 +32,6 @@ export const addNewWord = (word, definition) => dispatch => {
     })
     .then((word,definition) => {
         dispatch(addWord(word,definition));
-        alert(`thanks for feeding me a bunch of letters`);
     })
 }
 
