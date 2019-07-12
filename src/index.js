@@ -13,21 +13,14 @@ import LoginPage from './pages/login-page';
 import CreateNewWord from './pages/create-new-word';
 import LandingPage from './pages/landing-page';
 import SignupPage from './pages/sign-up-page';
+// import App from './App';
 
+//import app.js here
 import './index.css';
+import App from './App';
 
 import store from './store';
 
 ReactDOM.render(
-    <Provider store={store}>
-    <Router>
-        <Route path="/" component={Layout}></Route>
-            <Route path="/login-page" component={LoginPage}></Route>
-            <Route path="/addword" component={CreateNewWord}></Route>
-            <Route path="/landingpage" component={LandingPage}></Route>
-            <Route path="/homepage" component={Homepage}></Route>
-            <Route path="/mylist" component={ListOfWords}></Route>
-            <Route path="/signup" component={SignupPage}></Route>
-    </Router>
-    </Provider>, document.getElementById("root")
+    <App />, document.getElementById("root")
 );

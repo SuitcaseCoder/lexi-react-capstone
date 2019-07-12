@@ -1,11 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import Signup from './signup';
+import Signup from './sign-up';
 
-describe('<Signup />', () => {
+
     it('Renders without crashing', () => {
         shallow(<Signup />);
     });
 
-});

@@ -2,9 +2,8 @@ import React from 'react';
 // import ReactDOM from "react-dom";
 import { BrowserRouter as Router} from 'react-router-dom';
 import { Route } from "react-router-dom";
-import {Provider} from 'react-redux';
-import store from './store';
 
+// import logo from './logo.svg';
 import './App.css';
 import LandingPage from './pages/landing-page.js';
 
@@ -13,7 +12,7 @@ import ListOfWords from './pages/list-of-words';
 import LoginPage from './pages/login-page';
 import SignupPage from './pages/sign-up-page';
 import CreateNewWord from './pages/create-new-word';
-import Layout from './pages/layout';
+import WordChosen from './pages/word-chosen-page';
 
 
 
@@ -21,9 +20,9 @@ function App() {
   console.log({LoginPage})
 
   return (
-    <Provider store={store}>
+        // <Provider store={store}>
     <Router>
-        <Route path="/" component={Layout}></Route>
+        <Route path="/" component={LandingPage}></Route>
             <Route path="/login-page" component={LoginPage}></Route>
             <Route path="/addword" component={CreateNewWord}></Route>
             <Route path="/landingpage" component={LandingPage}></Route>
@@ -31,7 +30,7 @@ function App() {
             <Route path="/mylist" component={ListOfWords}></Route>
             <Route path="/signup" component={SignupPage}></Route>
     </Router>
-    </Provider>
+    // {/* </Provider>, */}
     
   );
 }

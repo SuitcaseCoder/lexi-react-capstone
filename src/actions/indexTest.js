@@ -1,4 +1,4 @@
-import {CREATE_USER, createUser, ADD_WORD, addWord} from './index';
+import {CREATE_USER, createUser, ADD_WORD, addWord, EDIT_WORD_SUCCESS, editWordSuccess} from './index';
 
 describe('createUser', () => {
     it('Should return the action', () => {
@@ -15,3 +15,13 @@ describe('addWord', () => {
         expect(action.word).toEqual(definition);
     });
 });
+
+describe('editWordSuccess', () => {
+    it('Should update the word being editied', () => {
+        const action = editWordSuccess();
+        expect(action.type).toEqual(EDIT_WORD_SUCCESS);
+        expect(action.editedWord).toEqual(editedWord);
+    });
+});
+
+
