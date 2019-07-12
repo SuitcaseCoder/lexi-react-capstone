@@ -148,24 +148,9 @@ export const createNewUser = (username, password, firstName, lastName) => dispat
             dispatch(signupError(code, message))
             console.log('should be validation error...code..and..message ', code, message);
         }
-        // const message = 
-        //     code === 422 ? 'Incorrect username or password' : 'Unable to login, please try again';
-        //     console.log(message);
-        //     dispatch(signupError(message));
     })
 }
 
-// .catch(err => {
-//     const {reason, message, location} = err;
-//     if (reason === 'ValidationError') {
-//         // Convert ValidationErrors into SubmissionErrors for Redux Form
-//         return Promise.reject(
-//             new SubmissionError({
-//                 [location]: message
-//             })
-//         );
-//     }
-// });
 // ---------------EDIT WORD SUCCESS----------------------
 
 export const EDIT_WORD_SUCCESS = "EDIT_WORD_SUCCESS";

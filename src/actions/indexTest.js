@@ -1,4 +1,4 @@
-import {CREATE_USER, createUser} from './index';
+import {CREATE_USER, createUser, ADD_WORD, addWord} from './index';
 
 describe('createUser', () => {
     it('Should return the action', () => {
@@ -8,13 +8,10 @@ describe('createUser', () => {
     });
 });
 
-// describe('addCard', () => {
-//     it('Should return the action', () => {
-//         const text = 'Card text';
-//         const listIndex = 10;
-//         const action = addCard(text, listIndex);
-//         expect(action.type).toEqual(ADD_CARD);
-//         expect(action.text).toEqual(text);
-//         expect(action.listIndex).toEqual(listIndex);
-//     });
-// });
+describe('addWord', () => {
+    it('Should return the action', () => {
+        const action = addWord(word,definition);
+        expect(action.type).toEqual(ADD_WORD);
+        expect(action.word).toEqual(definition);
+    });
+});
