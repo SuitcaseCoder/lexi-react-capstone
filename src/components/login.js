@@ -44,7 +44,7 @@ class LoginForm extends Component {
     render() {
         
         if(this.props.loginProcess === 'done') {
-            return <Redirect to ="/mylist" />
+            return <Redirect to ="/addword" />
         } else if(this.props.loginProcess === 'spinning'){
             return (
                 <div className="loading">login loading</div>
@@ -63,7 +63,7 @@ class LoginForm extends Component {
                     </label>
                     <label>
                         {/* Password */}
-                        <input placeholder="Password" type="text" value={this.state.password} onChange={this.handlePassChange} />
+                        <input placeholder="Password" type="password" value={this.state.password} onChange={this.handlePassChange} />
                     </label>
                     <input type="submit" value="login" />
                 </form>

@@ -10,7 +10,9 @@ const initialState = {
     loading: false,
     loginProcess: 'form',
     error: null,
-    signupProcess: 'form'
+    signupProcess: 'form',
+    signupError: null,
+    signupMessage: ''
 };
 
 export const lexiReducer = (state = initialState, action) => {
@@ -43,7 +45,9 @@ export const lexiReducer = (state = initialState, action) => {
             password: action.password,
             firstName: action.firstName,
             lastName: action.lastName,
-            signupProcess: 'done'
+            signupProcess: 'done',
+            signupError: action.signupError,
+            signupMessage: action.signupMessage
         })
     }
     
@@ -58,7 +62,8 @@ export const lexiReducer = (state = initialState, action) => {
         return Object.assign({}, state, {
             signupProcess: 'form',
             loading: false, 
-            error: action.error
+            signupMessage: action.signupMessage,
+            signupCode: action.signupCode
         });
     }
 

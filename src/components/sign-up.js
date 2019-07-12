@@ -19,6 +19,7 @@ class SignUpForm extends Component {
             password: '',
             firstName: '',
             lastName: '',
+            // error: ''
             // goToCreateWord: false
         };
           
@@ -61,40 +62,37 @@ class SignUpForm extends Component {
     }
 
     render() {
-        // if(this.state.goToCreateWord === true) {
-        //     return <Redirect to ="/mylist" />
-        // } 
 
         if(this.props.signupProcess === 'done') {
             return <Redirect to ="/login-page" />
         } else if(this.props.signupProcess === 'form'){
+            return(
+                <div className="formComponentContainer">
+                <h2 className="formTitle">{this.state.title}</h2>
+                <form onSubmit={this.handleNewUserSubmit} className="formStyle">
+                <div className="signupErr" value={this.props.signupMessage}>{this.props.signupMessage}</div>
 
-        return(
-            <div className="formComponentContainer">
-            <div className="signupErr" value={this.props.error}></div>
-            <h2 className="formTitle">{this.state.title}</h2>
-            <form onSubmit={this.handleNewUserSubmit} className="formStyle">
-                <label>
-                    {/* Username */}
-                    <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
-                </label>
-                <label>
-                    {/* Password */}
-                    <input placeholder="Password" type="text" value={this.state.password} onChange={this.handlePasswordChange} />
-                </label>
-                <label>
-                    {/* First Name */}
-                    <input placeholder="First Name" type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} />
-                </label>
-                <label>
-                    {/* Last Name */}
-                    <input placeholder="Last Name" type="text" value={this.state.lastName} onChange={this.handleLastNameChange} />
-                </label>
-                <input type="submit" value="sign up" />
-            </form>
-            <div className="loginOnSignupPage">already have an account? <Link to="/login-page" className="alreadyHaveLogin">login</Link></div>
-            </div>
-        )
+                    <label>
+                        {/* Username */}
+                        <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
+                    </label>
+                    <label>
+                        {/* Password */}
+                        <input placeholder="Password" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+                    </label>
+                    <label>
+                        {/* First Name */}
+                        <input placeholder="First Name" type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+                    </label>
+                    <label>
+                        {/* Last Name */}
+                        <input placeholder="Last Name" type="text" value={this.state.lastName} onChange={this.handleLastNameChange} />
+                    </label>
+                    <input type="submit" value="sign up" />
+                </form>
+                <div className="loginOnSignupPage">already have an account? <Link to="/login-page" className="alreadyHaveLogin">login</Link></div>
+                </div>
+            )
         }
     }
 }
@@ -106,17 +104,11 @@ const mapStateToProps = state => ({
     // firstName: state.firstName,
     // lastName: state.lastName,
     signupProcess: state.signupProcess,
-    error: state.error
+    signupError: state.signupError,
+    signupMessage: state.signupMessage
 
 });
 
-// const mapStateToProps = state => ({
-//     // username: state.username,
-//     // password: state.password,
-//     //left creating prop, right getting from state
-//     loginProcess: state.loginProcess,
-//     error: state.error
-// });
 
 
 export default connect(mapStateToProps)(SignUpForm);

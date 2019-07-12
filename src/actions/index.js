@@ -112,9 +112,10 @@ const createUser = (username, password, firstName, lastName) => ({
 });
 
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
-export const signupError = error => ({
+export const signupError = (signupError,signupMessage) => ({
     type: SIGNUP_ERROR,
-    error
+    signupError,
+    signupMessage
 });
 
 // export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
@@ -140,9 +141,12 @@ export const createNewUser = (username, password, firstName, lastName) => dispat
         dispatch(createUser(createdUser));
     })
     .catch(err => {
-        const {reason, message, location} = err;
-        if (reason === 'ValidationError'){
-            dispatch(signupError(message,location))
+        console.log('err res ', err);
+        const {code, message} = err;
+        console.log('defining err code... and.. message... as err' , code, message);
+        if (code === 422){
+            dispatch(signupError(code, message))
+            console.log('should be validation error...code..and..message ', code, message);
         }
         // const message = 
         //     code === 422 ? 'Incorrect username or password' : 'Unable to login, please try again';

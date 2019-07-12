@@ -18,6 +18,6 @@ export default function GetStarted(props) {
 }
 
 
-function Button(props){
-    return <button onClick={()=> props.onClick()}>get started</button>
-}
+// function Button(props){
+//     return <button onClick={()=> props.onClick()}>get started</button>
+// }
