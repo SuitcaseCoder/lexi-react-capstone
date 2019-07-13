@@ -24,14 +24,14 @@ export const lexiReducer = (state = initialState, action) => {
                 word: action.word.word,
                 definition: action.word.definition
             }],
-            // isLoggedIn: true
+            isLoggedIn: true
         });
     }
 
     if(action.type === actions.FETCH_WORDS_SUCCESS){
         return Object.assign({}, state, {
             words: action.words,
-            // isLoggedIn: true
+            isLoggedIn: true
         })
     }
     
@@ -39,7 +39,7 @@ export const lexiReducer = (state = initialState, action) => {
     if(action.type === actions.DELETE_WORD_SUCCESS){
         return Object.assign({}, state, {
             words: action.updatedWordList,
-            // isLoggedIn: true
+            isLoggedIn: true
         })
     }
 
@@ -52,7 +52,7 @@ export const lexiReducer = (state = initialState, action) => {
             signupProcess: 'done',
             signupError: action.signupError,
             signupMessage: action.signupMessage,
-            // isLoggedIn: false
+            isLoggedIn: false
         })
     }
 

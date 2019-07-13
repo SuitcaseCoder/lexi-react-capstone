@@ -35,10 +35,10 @@ class NavBar extends Component {
                         <Link to="addword" className="navLink">Add Word</Link>
                     </li>
                     <li>
-                        <Link to="mylist" className="navLink">my Lexi list</Link>
+                        <Link to="mylist" className="navLink">My List</Link>
                     </li>
                     <li>
-                        <Link to="landingpage" className="navLink">How To</Link>
+                        <Link to="landingpage" className="navLink">Homepage</Link>
                     </li>
                 </ul>
                 </nav>
@@ -51,7 +51,7 @@ class NavBar extends Component {
                         <Link to="/login-page" className="navLink">Login</Link>
                     </li>
                     <li>
-                        <Link to="landingpage" className="navLink">Lexi</Link>
+                        <Link to="landingpage" className="navLink">Lexi Homepage</Link>
                     </li>
                 </ul>
                 </nav>
