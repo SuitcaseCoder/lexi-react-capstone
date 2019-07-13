@@ -1,0 +1,13 @@
+.loading{
+    background-color: white;
+    color: #3d3d3f;
+    font-size: 28px;
+    text-align: center;
+    font-family: arial;
+
+}
+
+.loginErr{
+    color: red;
+    font-size: 20px;
+}

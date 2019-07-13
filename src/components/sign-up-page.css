@@ -21,3 +21,8 @@
     font-size: 18px;
     color: #7dce94;
 }
+
+.signupErr{
+    color: red;
+    font-size: 20px;
+}

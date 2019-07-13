@@ -8,6 +8,7 @@ import {Redirect} from 'react-router';
 import {login} from '../actions/index.js';
 
 import './form.css';
+import './login-page.css';
 
 class LoginForm extends Component {
     constructor(props){
@@ -54,9 +55,10 @@ class LoginForm extends Component {
             return(
                 //redux form vs not
                 <div className="formComponentContainer">
-                <div className="loginErr" value={this.props.error}>{this.props.error}</div>
                 <h2 className="formTitle">{this.state.title}</h2>
                 <form onSubmit={this.handleLoginSubmit} className="formStyle">
+                <div className="loginErr" value={this.props.error}>{this.props.error}</div>
+
                     <label>
                         {/* Username */}
                         <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsernameChange} />

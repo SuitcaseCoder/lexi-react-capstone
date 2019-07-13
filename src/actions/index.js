@@ -141,12 +141,9 @@ export const createNewUser = (username, password, firstName, lastName) => dispat
         dispatch(createUser(createdUser));
     })
     .catch(err => {
-        console.log('err res ', err);
         const {code, message} = err;
-        console.log('defining err code... and.. message... as err' , code, message);
         if (code === 422){
             dispatch(signupError(code, message))
-            console.log('should be validation error...code..and..message ', code, message);
         }
     })
 }
