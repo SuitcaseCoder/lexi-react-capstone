@@ -18,8 +18,6 @@ import Layout from './pages/layout';
 
 
 function App() {
-  console.log({LoginPage})
-
   return (
     <Provider store={store}>
     <Router>

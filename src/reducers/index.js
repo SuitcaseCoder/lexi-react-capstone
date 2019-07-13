@@ -12,7 +12,8 @@ const initialState = {
     error: null,
     signupProcess: 'form',
     signupError: null,
-    signupMessage: ''
+    signupMessage: '',
+    isLoggedIn: false,
 };
 
 export const lexiReducer = (state = initialState, action) => {
@@ -22,20 +23,23 @@ export const lexiReducer = (state = initialState, action) => {
             words: [...state.words, {
                 word: action.word.word,
                 definition: action.word.definition
-            }]
+            }],
+            // isLoggedIn: true
         });
     }
 
     if(action.type === actions.FETCH_WORDS_SUCCESS){
         return Object.assign({}, state, {
-            words: action.words
+            words: action.words,
+            // isLoggedIn: true
         })
     }
     
 
     if(action.type === actions.DELETE_WORD_SUCCESS){
         return Object.assign({}, state, {
-            words: action.updatedWordList
+            words: action.updatedWordList,
+            // isLoggedIn: true
         })
     }
 
@@ -47,7 +51,8 @@ export const lexiReducer = (state = initialState, action) => {
             lastName: action.lastName,
             signupProcess: 'done',
             signupError: action.signupError,
-            signupMessage: action.signupMessage
+            signupMessage: action.signupMessage,
+            // isLoggedIn: false
         })
     }
     
@@ -63,7 +68,8 @@ export const lexiReducer = (state = initialState, action) => {
             signupProcess: 'form',
             loading: false, 
             signupMessage: action.signupMessage,
-            signupCode: action.signupCode
+            signupCode: action.signupCode,
+            isLoggedIn: false
         });
     }
 
@@ -83,25 +89,29 @@ export const lexiReducer = (state = initialState, action) => {
     } else if (action.type === actions.CLEAR_AUTH) {
         return Object.assign({}, state, {
             authToken: null,
-            currentuser: null
+            currentuser: null,
+            isLoggedIn: false
         });
     } else if (action.type === actions.AUTH_REQUEST) {
         return Object.assign({}, state, {
             loginProcess: 'spinning',
             loading: true,
-            error: null
+            error: null,
+            isLoggedIn: false
         });
     } else if (action.type === actions.AUTH_SUCCESS) {
         return Object.assign({}, state, {
             loginProcess: 'done',
             loading: false, 
-            error: null
+            error: null,
+            isLoggedIn: true
         });
     } else if (action.type === actions.AUTH_ERROR){
         return Object.assign({}, state, {
             loginProcess: 'form',
             loading: false, 
-            error: action.error
+            error: action.error,
+            isLoggedIn: false
         });
     }
     
