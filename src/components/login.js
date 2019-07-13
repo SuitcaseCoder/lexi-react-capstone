@@ -42,19 +42,19 @@ class LoginForm extends Component {
     }
 
     render() {
-        
-        if(this.props.loginProcess === 'done') {
+        console.log(this.props);
+        if(this.props.isLoggedIn === true) {
             return <Redirect to ="/addword" />
         } else if(this.props.loginProcess === 'spinning'){
             return (
                 <div className="loading">login loading</div>
             )
-        } else if(this.props.loginProcess === 'form'){
+        } else if(this.props.isLoggedIn === false){
 
             return(
                 //redux form vs not
                 <div className="formComponentContainer">
-                <div className="loginErr" value={this.props.error}></div>
+                <div className="loginErr" value={this.props.error}>{this.props.error}</div>
                 <h2 className="formTitle">{this.state.title}</h2>
                 <form onSubmit={this.handleLoginSubmit} className="formStyle">
                     <label>
@@ -76,11 +76,10 @@ class LoginForm extends Component {
 
 //this is redux state . provides info from redux store to component. 
 const mapStateToProps = state => ({
-    // username: state.username,
-    // password: state.password,
     //left creating prop, right getting from state
     loginProcess: state.loginProcess,
-    error: state.error
+    error: state.error,
+    isLoggedIn: state.isLoggedIn,
 });
 
 export default connect(mapStateToProps)(LoginForm);

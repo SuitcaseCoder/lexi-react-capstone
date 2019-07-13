@@ -55,14 +55,7 @@ export const lexiReducer = (state = initialState, action) => {
             // isLoggedIn: false
         })
     }
-    
-    // if (action.type === actions.SIGNUP_SUCCESS) {
-    //     return Object.assign({}, state, {
-    //         signupProcess: 'done',
-    //         loading: false, 
-    //         error: null
-    //     })
-    // } else 
+
     if (action.type === actions.SIGNUP_ERROR){
         return Object.assign({}, state, {
             signupProcess: 'form',

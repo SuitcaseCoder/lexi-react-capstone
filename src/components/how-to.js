@@ -7,9 +7,9 @@ export default function HowTo()  {
     //     const stepTwo = this.props.stepTwo;
     //     const stepThree = this.props.stepThree;
     
-    const stepOne = "Just learned a new word, you don't want to forget five minutes from now? Get Started to begin saving new words to your list";
-    const stepTwo = "Access and view your list of words from your 'lexi-list' in the navbar";
-    const stepThree = "view, edit, or delete any word by clicking on it from your 'lexi-list";
+    const stepOne = "Just learned a new word, you don't want to forget five minutes from now? You can now create your very own lexicon with Lexi!";
+    const stepTwo = "Click on 'Get Started' to register an account and login. Demo Login: username: demo password: password123";
+    const stepThree = "Add, view, edit, or delete any word by navigating through the top links";
 
         return (
             <section className="howItWorks">
