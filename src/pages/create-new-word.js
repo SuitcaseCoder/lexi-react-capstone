@@ -8,7 +8,7 @@ import '../components/create-new-word.css';
 
 export default function CreateNewWord(){
     return (
-        <div>
+        <div className="newworddiv">
             <NewWordForm />
         </div>
     );

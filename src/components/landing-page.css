@@ -8,14 +8,14 @@
   align-items: baseline;
   margin: 0;
   /* padding: 18px; */
-  background: url(https://images.unsplash.com/photo-1518169998863-07b9ca9294ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60) no-repeat; 
+  /* background: url(https://images.unsplash.com/photo-1518169998863-07b9ca9294ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60) no-repeat;  */
 }
 
 .img-Right{
   min-width: 33%;
   align-items: baseline;
   margin: 0;
-  background: url(https://images.unsplash.com/photo-1518169998863-07b9ca9294ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60) no-repeat;
+  /* background: url(https://images.unsplash.com/photo-1518169998863-07b9ca9294ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60) no-repeat; */
   /* padding: 18px; */
 
 }
@@ -35,7 +35,6 @@
 
 button {
   min-width: 15%;
-  margin: 0;
   align-self: center;
   padding: 18px;
   font-size: 16px;

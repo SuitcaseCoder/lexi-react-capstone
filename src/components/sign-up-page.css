@@ -1,5 +1,5 @@
 .pageContainer{
-    background: url(https://images.unsplash.com/photo-1518169998863-07b9ca9294ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60) repeat;
+    /* background: url(https://images.unsplash.com/photo-1518169998863-07b9ca9294ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60) repeat; */
     background-color: #3d3d3f;
     display: flex;
     flex-direction: column;

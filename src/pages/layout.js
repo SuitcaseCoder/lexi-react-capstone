@@ -9,8 +9,6 @@ export default class Layout extends React.Component{
         render() {
             return (
                 <div className="backgroundimg">
-                    <NavBar />
-                    {/* <Component  location={this.props.children} /> */}
                 </div>
             )
         }
