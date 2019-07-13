@@ -17,9 +17,7 @@ class LandingPage extends Component {
                 <Header />
                 <HowTo />
                 <div className="linkToSignup">
-                    <div className="img-Left"> </div>
                     <Link to="/signup"><button>Get Started</button></Link>
-                    <div className="img-Right"> </div>
                 </div>
             </div>
         )
