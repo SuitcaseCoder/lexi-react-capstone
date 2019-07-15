@@ -43,7 +43,6 @@ class LoginForm extends Component {
     }
 
     render() {
-        console.log(this.props);
         if(this.props.isLoggedIn === true) {
             return <Redirect to ="/addword" />
         } else if(this.props.loginProcess === 'spinning'){

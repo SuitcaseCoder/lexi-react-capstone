@@ -26,7 +26,8 @@ export class ListOfWords extends React.Component {
         editingWordId: '',
         editingWord: '',
         editingDef: '',
-
+        isDeleted: false,
+        learningProgress: 'white'
     };
 
         this.handleUpdatedWord = this.handleUpdatedWord.bind(this);
@@ -35,6 +36,11 @@ export class ListOfWords extends React.Component {
         this.handleDeleteButton = this.handleDeleteButton.bind(this);
         this.handleEditButton = this.handleEditButton.bind(this);
         this.handleSubmitEditButton = this.handleSubmitEditButton.bind(this);
+
+        this.handleRedClick = this.handleRedClick.bind(this);
+        this.handleYellowClick = this.handleYellowClick.bind(this);
+        this.handleGreenClick = this.handleGreenClick.bind(this);
+
 
     }
     componentDidMount() {
@@ -56,17 +62,21 @@ export class ListOfWords extends React.Component {
     handleDeleteButton(wordId, event){
         event.preventDefault();
         this.props.dispatch(deleteSelectedWord(wordId));
+        this.setState({
+            isDeleted: true
+        })
+        this.props.dispatch(fetchWords());
     }
+
 
     handleEditButton(wordId, word, def, event){
         event.preventDefault();
         this.setState({
             isEditing: true,
-           editingWordId: wordId,
+            editingWordId: wordId,
             editingWord: word,
             editingDef: def
         })
-       
     }
 
     handleSubmitEditButton(event, wordId, updatedWord, updatedDef){
@@ -77,19 +87,54 @@ export class ListOfWords extends React.Component {
         })
     }
 
-    render() {
+//------------------------------------------
 
+    handleRedClick(e){
+        e.preventDefault();
+        console.log('current learning Progress status:.....', this.state.learningProgress);
+        this.setState({
+            learningProgress: 'red'
+        })
+        console.log("setStatechanged should be red ....", this.state.learningProgress)
+    };
+
+
+    handleYellowClick(e){
+        e.preventDefault();
+        console.log('yellow clicked');
+        this.setState({
+            learningProgress: 'yellow'
+        })
+    };
+
+    handleGreenClick(e){
+        e.preventDefault();
+        console.log('green clicked');
+        this.setState({
+            learningProgress: 'green'
+        })
+    };
+
+//------------------------------------------
+
+    render() {
+        console.log('okay now it should be red.....', this.state.learningProgress)
         const words = this.props.words.map((word,index)=>(
-            // <div key={index}>
-            <EachLetter {...word} key={index} handleDeleteButton={this.handleDeleteButton}  handleEditButton={this.handleEditButton}/>
-            // </div>
+            <EachLetter {...word} key={index} 
+            handleDeleteButton={this.handleDeleteButton}  
+            handleEditButton={this.handleEditButton} 
+            handleRedClick={this.handleRedClick}
+            handleYellowClick={this.handleYellowClick}
+            handleGreenClick={this.handleGreenClick}
+            learningProgress={this.learningProgress}
+            />
         ));
 
     
         if(this.state.isEditing === false){
             return (
             <div className="wordListPageContainer">
-            <h2 className="wordListTitle">Words</h2>
+            <h2 className="wordListTitle">Your List of Words</h2>
             <ul className="wordListContainer">
                 {words}
             </ul>
@@ -112,13 +157,14 @@ export class ListOfWords extends React.Component {
                     </form> 
                 </div>
             )
-        }
+        } 
     }
 }
 
 
 const mapStateToProps = state => ({
     words: state.words,
+    learningProgress: state.learningProgress
 })
 
 export default connect(mapStateToProps)(ListOfWords);

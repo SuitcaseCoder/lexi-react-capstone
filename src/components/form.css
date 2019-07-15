@@ -65,5 +65,10 @@ input[type=submit]:hover {
     .formComponentContainer {
         margin-top: 10px;
     }
+    
+    .formTitle{
+        font-size: 28px;
+        text-align: center;
+    }
   
   }

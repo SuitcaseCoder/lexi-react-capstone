@@ -39,7 +39,8 @@ export const lexiReducer = (state = initialState, action) => {
     if(action.type === actions.DELETE_WORD_SUCCESS){
         return Object.assign({}, state, {
             words: action.updatedWordList,
-            isLoggedIn: true
+            isLoggedIn: true,
+            isDeleted: true
         })
     }
 
@@ -65,13 +66,6 @@ export const lexiReducer = (state = initialState, action) => {
             isLoggedIn: false
         });
     }
-
-    // if(action.type === actions.USER_LOGIN){
-    //     return Object.assign({}, state,{
-    //         username: action.username,
-    //         password: action.password,
-    //     })
-    // }
 
 // ---------------------------------------------------
 

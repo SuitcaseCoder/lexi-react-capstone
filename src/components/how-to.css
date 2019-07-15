@@ -4,6 +4,7 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     background-color: #f6f5f3;
+    padding: 25px 0;
 }
   
 .howToSteps{
@@ -25,12 +26,11 @@
       flex-direction: column;
       justify-content: space-between;
       text-align: center;
-      align-content: space-around;
-      
+      align-content: space-around;     
   }
 
   .howToSteps {
-    min-width: 90%;
+    min-width: 70%;
     margin: 10px 0;
   }
 

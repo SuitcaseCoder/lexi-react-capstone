@@ -38,6 +38,26 @@
 
 }
 
+span{
+  /* background-color: white; */
+  max-width: 30%;
+  border-radius: 10px;
+  min-height: 8%;
+  margin-bottom: 10px;
+  border: 1px solid white;
+}
+/* .red{
+ background-color: rgba(255,0,0, 0.5);
+}
+
+.yellow{
+  background-color: rgba(255,255,0, 0.5);
+}
+
+.green{
+  background-color: rgba(0,128,0, 0.5);
+} */
+
 #deleteWordBtn{
   flex: 0.5;
   padding: 4px;
@@ -66,4 +86,15 @@
   background-color: #3d3d3f;
   color: white;
   outline: none;
+}
+
+@media all and (max-width:480px) {
+  .eachWord {
+      margin-top: 4px;
+      font-size: 14px;
+      min-width: 90%;
+      padding: 0;
+  }
+  
+
 }

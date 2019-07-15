@@ -22,7 +22,7 @@ header {
   }
 
   h1:hover {
-    text-shadow: 2px 1px 2px #7dce94;
+    text-shadow: 2px 1px 2px #3d3d3f;
   }
 
   h1::after {

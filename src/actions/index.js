@@ -68,7 +68,8 @@ export const fetchWords = () => (dispatch) => {
 export const DELETE_WORD_SUCCESS = "DELETE_WORD_SUCCESS";
 const deleteWordSuccess = (updatedWordList) => ({
     type: DELETE_WORD_SUCCESS,
-        updatedWordList
+        updatedWordList,
+        isDeleted: true
 });
 
 
@@ -86,7 +87,6 @@ export const deleteSelectedWord = (deletedWordId) => dispatch => {
     })
     .then(res => res.json())
     .then(updatedWords => {
-        // dispatch(deleteWord(deletedWordId));
         dispatch(deleteWordSuccess(updatedWords))
 
         // console.log(res.status);

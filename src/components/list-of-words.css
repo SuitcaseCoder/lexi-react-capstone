@@ -10,7 +10,9 @@
 .wordListTitle{
   font-family: 'Alegreya', serif;
   font-size: 48px;
-  color: #3d3d3f
+  color: #3d3d3f;
+  background-color: rgba(255,2550, 255, 0.9);
+  text-align: center;
 }
 
 .wordListContainer{
@@ -19,7 +21,19 @@
   /* flex-direction: column; */
   /* align-content: space-around; */
   padding: 20px 0;
-  width: 100%;
+  max-width: 70%;
   justify-content: flex-start;
   background-color: #f6f5f3;
+}
+
+@media all and (max-width:480px) {
+  .wordListContainer {
+      margin-top: 10px;
+      /* background-color: red; */
+  }
+  .wordListTitle{
+    font-size: 28px;
+    margin: 0;
+  }
+
 }

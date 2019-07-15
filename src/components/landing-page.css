@@ -5,7 +5,7 @@
 
 
 .linkToSignup{
-  background-color: #f6f5f3;
+  background-color: white;
   min-height: 200px;
   margin: 0 auto;
   padding: 75px 0;
@@ -27,4 +27,16 @@ button {
 button:hover {
   color: #3d3d3f;
   background-color: #7dce94;
+}
+
+
+@media all and (max-width:480px) {
+  .linkToSignup {
+      font-size: 14px;
+      min-width: 90%;
+      padding: 0;
+      min-height: 25px;
+      padding-bottom: 14px;
+  }
+
 }
