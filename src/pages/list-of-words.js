@@ -27,7 +27,10 @@ export class ListOfWords extends React.Component {
         editingWord: '',
         editingDef: '',
         isDeleted: false,
-        learningProgress: 'white'
+        // learningProgress: 'white',
+        isRed: 'white',
+        isYellow: 'white',
+        isGreen: 'white'
     };
 
         this.handleUpdatedWord = this.handleUpdatedWord.bind(this);
@@ -91,11 +94,12 @@ export class ListOfWords extends React.Component {
 
     handleRedClick(e){
         e.preventDefault();
-        console.log('current learning Progress status:.....', this.state.learningProgress);
+        console.log(this.state.isRed);
         this.setState({
-            learningProgress: 'red'
+            isRed: this.state.isRed === 'white' ? 'rgba(255,0,0, 0.5)' : 'white'
+            // isRed: 'red'
         })
-        console.log("setStatechanged should be red ....", this.state.learningProgress)
+
     };
 
 
@@ -103,7 +107,7 @@ export class ListOfWords extends React.Component {
         e.preventDefault();
         console.log('yellow clicked');
         this.setState({
-            learningProgress: 'yellow'
+            isYellow: this.state.isYellow === 'white' ? 'rgba(255,255,0, 0.5)' : 'white'
         })
     };
 
@@ -111,14 +115,15 @@ export class ListOfWords extends React.Component {
         e.preventDefault();
         console.log('green clicked');
         this.setState({
-            learningProgress: 'green'
+            isGreen: this.state.isGreen === 'white' ? 'rgba(0,128,0, 0.5)' : 'white'
+            // isGreen: 'green'
         })
     };
 
 //------------------------------------------
 
     render() {
-        console.log('okay now it should be red.....', this.state.learningProgress)
+        console.log('okay now it should be the color clicked.....', this.state.isRed, this.state.isYellow, this.state.isGreen)
         const words = this.props.words.map((word,index)=>(
             <EachLetter {...word} key={index} 
             handleDeleteButton={this.handleDeleteButton}  
@@ -126,7 +131,10 @@ export class ListOfWords extends React.Component {
             handleRedClick={this.handleRedClick}
             handleYellowClick={this.handleYellowClick}
             handleGreenClick={this.handleGreenClick}
-            learningProgress={this.learningProgress}
+            isRed={this.state.isRed}
+            isYellow={this.state.isYellow}
+            isGreen={this.state.isGreen}
+            // learningProgress={this.learningProgress}
             />
         ));
 
