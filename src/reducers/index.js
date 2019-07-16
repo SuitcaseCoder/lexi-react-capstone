@@ -17,7 +17,6 @@ const initialState = {
 };
 
 export const lexiReducer = (state = initialState, action) => {
-    console.log('action .... ', action);
     if(action.type === actions.ADD_WORD){
         return Object.assign({}, state, {
             words: [...state.words, {

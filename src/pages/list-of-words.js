@@ -27,10 +27,10 @@ export class ListOfWords extends React.Component {
         editingWord: '',
         editingDef: '',
         isDeleted: false,
-        // learningProgress: 'white',
         isRed: 'white',
         isYellow: 'white',
-        isGreen: 'white'
+        isGreen: 'white',
+        activeWordId: ''
     };
 
         this.handleUpdatedWord = this.handleUpdatedWord.bind(this);
@@ -91,21 +91,19 @@ export class ListOfWords extends React.Component {
     }
 
 //------------------------------------------
-
-    handleRedClick(e){
+// create new component. move to new component (handle colors and ). no need to map. 
+    handleRedClick(letterId, e){
         e.preventDefault();
-        console.log(this.state.isRed);
         this.setState({
-            isRed: this.state.isRed === 'white' ? 'rgba(255,0,0, 0.5)' : 'white'
-            // isRed: 'red'
+            isRed: this.state.isRed === 'white' ? 'rgba(255,0,0, 0.5)' : 'white',
+            activeWordId: letterId
         })
-
+        // console.log(activeWordId);
     };
 
 
     handleYellowClick(e){
         e.preventDefault();
-        console.log('yellow clicked');
         this.setState({
             isYellow: this.state.isYellow === 'white' ? 'rgba(255,255,0, 0.5)' : 'white'
         })
@@ -113,17 +111,14 @@ export class ListOfWords extends React.Component {
 
     handleGreenClick(e){
         e.preventDefault();
-        console.log('green clicked');
         this.setState({
             isGreen: this.state.isGreen === 'white' ? 'rgba(0,128,0, 0.5)' : 'white'
-            // isGreen: 'green'
         })
     };
 
 //------------------------------------------
 
     render() {
-        console.log('okay now it should be the color clicked.....', this.state.isRed, this.state.isYellow, this.state.isGreen)
         const words = this.props.words.map((word,index)=>(
             <EachLetter {...word} key={index} 
             handleDeleteButton={this.handleDeleteButton}  
@@ -131,10 +126,9 @@ export class ListOfWords extends React.Component {
             handleRedClick={this.handleRedClick}
             handleYellowClick={this.handleYellowClick}
             handleGreenClick={this.handleGreenClick}
-            isRed={this.state.isRed}
+            isRed={this.state.activeWordId === word.id ? this.state.isRed: 'white'}
             isYellow={this.state.isYellow}
             isGreen={this.state.isGreen}
-            // learningProgress={this.learningProgress}
             />
         ));
 
