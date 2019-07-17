@@ -35,6 +35,9 @@ class NavBar extends Component {
                         <Link to="addword" className="navLink">Add Word</Link>
                     </li>
                     <li>
+                        <Link to="allWords" className="navLink">All Words</Link>
+                    </li>
+                    <li>
                         <Link to="mylist" className="navLink">My List</Link>
                     </li>
                     <li>

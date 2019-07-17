@@ -6,6 +6,34 @@ import {saveAuthToken, clearAuthToken} from '../local-storage';
 import {normalizeResponse} from '../normalizeResponse';
 import { API_BASE_URL } from "../config";
 
+
+// -----------------FETCH WORDS SUCCESS-------------------
+export const FETCH_ALL_WORDS_SUCCESS = 'FETCH__ALL_WORDS_SUCCESS';
+export const fetchAllWordsSuccess = allWords => ({
+    type: FETCH_ALL_WORDS_SUCCESS,
+    allWords
+});
+
+export const fetchAllWords = () => (dispatch) => {
+    // ${API_BASE_URL}
+    // http://localhost:8080
+
+    fetch(`${API_BASE_URL}/allWords`,{
+        method: 'GET',
+        headers: {
+            'Content-Type':'application/json',
+        }
+    })
+        // .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then((allWords) => dispatch(fetchAllWordsSuccess(allWords)))
+        .catch(err => {
+            console.log(err);
+            // dispatch(fetchProtectedDataError(err));
+        });
+};
+
+
 // --------------------ADD WORD--------------------
 export const ADD_WORD = 'ADD_WORD';
  const addWord = (word, definition) => ({
@@ -97,7 +125,6 @@ export const deleteSelectedWord = (deletedWordId) => dispatch => {
         // }
     })
 }
-
 
 
 // ------------------CREATE USER---------------------

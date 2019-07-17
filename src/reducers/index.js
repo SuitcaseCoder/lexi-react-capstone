@@ -5,6 +5,10 @@ const initialState = {
         word:'',
         definition: ''
     }],
+    allWords: [{
+        word: '',
+        definition: ''
+    }],
     authToken: null,
     currentuser: null,
     loading: false,
@@ -33,8 +37,14 @@ export const lexiReducer = (state = initialState, action) => {
             isLoggedIn: true
         })
     }
-    
 
+    if(action.type === actions.FETCH_ALL_WORDS_SUCCESS){
+        return Object.assign({}, state, {
+            allWords: action.allWords,
+            isLoggedIn: true
+        })
+    }
+    
     if(action.type === actions.DELETE_WORD_SUCCESS){
         return Object.assign({}, state, {
             words: action.updatedWordList,

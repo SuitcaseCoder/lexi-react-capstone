@@ -13,6 +13,7 @@ import ListOfWords from './pages/list-of-words';
 import LoginPage from './pages/login-page';
 import SignupPage from './pages/sign-up-page';
 import CreateNewWord from './pages/create-new-word';
+import AllWordsPage from './pages/all-words-page';
 import Layout from './pages/layout';
 import Navbar from './components/navbar';
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/addword" component={CreateNewWord}></Route>
             <Route path="/landingpage" component={LandingPage}></Route>
             <Route path="/homepage" component={Homepage}></Route>
+            <Route path="/allWords" component={AllWordsPage}></Route>
             <Route path="/mylist" component={ListOfWords}></Route>
             <Route path="/signup" component={SignupPage}></Route>
     </Router>
