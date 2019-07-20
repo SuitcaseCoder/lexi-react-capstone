@@ -9,7 +9,7 @@ import '../components/login-page.css';
 class LoginPage extends Component {
     render(){
         return (
-            <div className="pageContainer">
+            <div>
                 <Login />
             </div>
         )

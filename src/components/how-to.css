@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    background-color: #f6f5f3;
+    background-color: rgba(255,255,255,0.9);
     padding: 25px 0;
 }
   
@@ -19,6 +19,7 @@
   align-items: center;
   /* text-align: center; */
   justify-content: center;
+  background-color: white;
 }
 
 @media all and (max-width:480px) {

@@ -1,12 +1,12 @@
-.pageContainer{
+/* .pageContainer{
     /* background: url(https://images.unsplash.com/photo-1518169998863-07b9ca9294ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60) repeat; */
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     padding: 45px;
     margin-top: 25px;
 
-}
+} */ 
 
 .loginOnSignupPage{
     color: #3d3d3f;

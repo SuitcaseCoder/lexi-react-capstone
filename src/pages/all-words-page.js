@@ -1,11 +1,11 @@
-//------------- MY LIST PAGE ---------------- //
+//------------- ALL WORDS PAGE ---------------- //
 import React from 'react';
 
 import {connect} from 'react-redux';
 import{fetchAllWords} from '../actions';
-;
+import {addNewWord} from '../actions';
 
-import EachWordItem from '../components/each-letter.js';
+import EachWordItem from '../components/eachWordItem';
 // import LettersList from '../components/letters-list';
 
 import '../components/list-of-words.css';
@@ -13,7 +13,7 @@ import '../components/form.css';
 import '../components/new-word-form.css';
 
 
-export class ListOfWords extends React.Component {
+export class AllWords extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -41,13 +41,10 @@ export class ListOfWords extends React.Component {
         this.props.dispatch(fetchAllWords());
     }
 
-    handleAddToMyListButton(wordAddedId, event){
+    handleAddToMyListButton(wordAdded, defAdded, event){
+        console.log('add to my list clicked and word added and def added is......', wordAdded, defAdded);
         event.preventDefault();
-        // change params
-        this.props.dispatch(addToMyList(wordAddedId));
-        // this.setState({
-        //     isEditing: false
-        // })
+        this.props.dispatch(addNewWord(wordAdded, defAdded));
     }
 
 //------------------------------------------
@@ -62,8 +59,9 @@ export class ListOfWords extends React.Component {
 
         return (
             <div className="wordListPageContainer">
-            <h2 className="wordListTitle">All Words</h2>
+            {/* <h2 className="wordListTitle">All Words</h2> */}
             <ul className="wordListContainer">
+            <h2 className="wordListTitle">All Words</h2>
                 {allWords}
             </ul>
             </div> 
@@ -78,4 +76,4 @@ const mapStateToProps = state => ({
     allWords: state.allWords,
 })
 
-export default connect(mapStateToProps)(ListOfWords);
+export default connect(mapStateToProps)(AllWords);

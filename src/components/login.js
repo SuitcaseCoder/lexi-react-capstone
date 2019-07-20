@@ -57,7 +57,6 @@ class LoginForm extends Component {
                 <h2 className="formTitle">{this.state.title}</h2>
                 <form onSubmit={this.handleLoginSubmit} className="formStyle">
                 <div className="loginErr" value={this.props.error}>{this.props.error}</div>
-
                     <label>
                         {/* Username */}
                         <input placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsernameChange} />

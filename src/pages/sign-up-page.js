@@ -12,7 +12,7 @@ class SignupPage extends Component {
     render(){
         
         return (
-                <div className="pageContainer">
+                <div>
                     <Signup />
                 </div>
         )

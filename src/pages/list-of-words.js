@@ -93,8 +93,13 @@ export class ListOfWords extends React.Component {
 //------------------------------------------
 // create new component. move to new component (handle colors and ). no need to map. 
     handleRedClick(letterId, e){
+        console.log('this is e............', e);
+        console.log('and this is letterId~~~~~~~~~~~~~~~~~`', letterId);
+        console.log('and this is something~~~~~~~~~~~~~~~~~`', e.target);
+
         e.preventDefault();
         this.setState({
+            // isRed: if(this.state.isRed ==='white' &&& )
             isRed: this.state.isRed === 'white' ? 'rgba(255,0,0, 0.5)' : 'white',
             activeWordId: letterId
         })
@@ -123,12 +128,12 @@ export class ListOfWords extends React.Component {
             <EachLetter {...word} key={index} 
             handleDeleteButton={this.handleDeleteButton}  
             handleEditButton={this.handleEditButton} 
-            handleRedClick={this.handleRedClick}
-            handleYellowClick={this.handleYellowClick}
-            handleGreenClick={this.handleGreenClick}
-            isRed={this.state.activeWordId === word.id ? this.state.isRed: 'white'}
-            isYellow={this.state.isYellow}
-            isGreen={this.state.isGreen}
+            // handleRedClick={this.handleRedClick}
+            // handleYellowClick={this.handleYellowClick}
+            // handleGreenClick={this.handleGreenClick}
+            // isRed={this.state.activeWordId === word.id ? this.state.isRed: 'white'}
+            // isYellow={this.state.isYellow}
+            // isGreen={this.state.isGreen}
             />
         ));
 
@@ -136,8 +141,8 @@ export class ListOfWords extends React.Component {
         if(this.state.isEditing === false){
             return (
             <div className="wordListPageContainer">
-            <h2 className="wordListTitle">Your List of Words</h2>
             <ul className="wordListContainer">
+            <h2 className="wordListTitle">Your List of Words</h2>
                 {words}
             </ul>
             </div> )

@@ -1,20 +1,16 @@
-/* * {
-    font-family: arial;
-    box-sizing: border-box;
-    margin: 0 auto;
-    background-color: #f9f8fd;
-  } */
-  
   nav {
-    /* margin-top: 0; */
     top: 0;
     left: 0;
     right: 0;
     z-index: 10;
     text-align: right;
-     background-color: #ddd;
+     background-color: rgba(0,0,0,0.5);
   }
   
+  nav:hover{
+    background-color: black;
+  }
+
   .nav-link {
     padding: 10px;
   }
@@ -27,19 +23,29 @@
   
   .navLink {
     text-decoration: none;
-    font-size: 18px;
-    color: #3d3d3f;
+    font-size: 20px;
+    color: white;
   }
   
   .navLink:hover{
     text-decoration: none;
     color: #aaa;
+    font-size: 24px;
   }
 
   @media all and (max-width:480px) {
     nav ul li {
-        padding: 5px;
+        padding: 3px;
         font-size: 12px;
+    }
+
+    .navLink {
+      font-size: 14px;
+      padding: 0 5px;
+    }
+
+    .navLink:hover {
+      font-size: 16px;
     }
   
   }

@@ -90,13 +90,42 @@ span{
   outline: none;
 }
 
+#addWordBtn{
+  flex: 1;
+  padding: 4px;
+  margin: 5px;
+  outline: 1px solid rgba(61,61,63,0.4);
+  background-color: #f9f8fd;
+  order: 4;
+}
+
+#addWordBtn:hover{
+  background-color: #3d3d3f;
+  color: white;
+  outline: none;
+}
+
 @media all and (max-width:480px) {
   .eachWord {
       margin-top: 4px;
+      margin-bottom: 10px;
       font-size: 14px;
       min-width: 90%;
       padding: 0;
   }
   
+  #deleteWordBtn, #editWordBtn {
+    flex: 0.5;
+    font-size: 14px;
+    outline: 1px solid rgba(61,61,63,0.4);
+    /* background-color: #f9f8fd; */
+  
+  }
 
+  #addWordBtn {
+    flex: 1;
+    font-size: 14px;
+    outline: 1px solid rgba(61,61,63,0.4);
+
+  }
 }

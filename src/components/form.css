@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: column;
     padding: 20px 0;
-    min-width: 65%;
-    background-color: #f9f8fd;
+    max-width: 65%;
+    background-color: rgba(255,255,255,0.8);
     margin-top: 80px;
 
 }
 
 .formTitle{
-    font-family: 'Alegreya', serif;
+    font-family: 'Sacramento', serif;
     font-size: 48px;
     color: #3d3d3f;
 }
@@ -71,4 +71,8 @@ input[type=submit]:hover {
         text-align: center;
     }
   
+    .formStyle{
+        margin: 0;
+        padding: 0px;
+    }
   }

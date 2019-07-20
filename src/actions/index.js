@@ -25,8 +25,10 @@ export const fetchAllWords = () => (dispatch) => {
         }
     })
         // .then(res => normalizeResponseErrors(res))
-        .then(res => res.json())
-        .then((allWords) => dispatch(fetchAllWordsSuccess(allWords)))
+        .then(res => res.json(res))
+        .then((allWords) => {console.log('allWords,,,,,', allWords)
+        dispatch(fetchAllWordsSuccess(allWords))
+    })
         .catch(err => {
             console.log(err);
             // dispatch(fetchProtectedDataError(err));

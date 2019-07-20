@@ -3,15 +3,15 @@ import './each-letter.css';
 
 export default function EachLetter(props) {
     const wordAddedId = props._id;
+    const wordAdded = props.word;
+    const defAdded = props.definition;
 
     return (
             <li className="eachWord">
                 <div className="wordTitle">{props.word}</div>
                 <div className="liDiv" className="wordDefinition">{props.definition}</div>
-                {/* <LearningProgress/> */}
-                <button className="addToMyList" id="addWordBtn" onClick={(e) => props.handleAddToMyListButton(wordAddedId, e)}
+                <button className="addToMyList" id="addWordBtn" onClick={(e) => props.handleAddToMyListButton(props.word, defAdded, e)}
                 >Add to My List</button>
-
             </li>
         );      
 }
