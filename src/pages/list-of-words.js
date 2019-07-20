@@ -99,8 +99,8 @@ export class ListOfWords extends React.Component {
 
         e.preventDefault();
         this.setState({
-            // isRed: if(this.state.isRed ==='white' &&& )
-            isRed: this.state.isRed === 'white' ? 'rgba(255,0,0, 0.5)' : 'white',
+            // isRed: if(this.state.isRed === 'white' &&& )
+            // isRed: this.state.isRed === 'white' ? 'rgba(255,0,0, 0.5)' : 'white',
             activeWordId: letterId
         })
         // console.log(activeWordId);
