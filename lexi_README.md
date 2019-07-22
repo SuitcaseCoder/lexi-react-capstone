@@ -42,4 +42,15 @@ Users should be able to try out Lexi using the demo account, provided on the lan
 # Images
 
 ## Homepage: 
+![homepage](https://https://github.com/SuitcaseCoder/lexi-react-capstone/blob/master/public/LexiHomepage.png)
+
+## My List 
+![listofwords](https://github.com/SuitcaseCoder/lexi-react-capstone/blob/master/public/LexiList.png)
+
+## Add Word
+![listofwords](https://github.com/SuitcaseCoder/lexi-react-capstone/blob/master/public/addWord.png)
+
+## Add Word to my List
+![listofwords](https://github.com/SuitcaseCoder/lexi-react-capstone/blob/master/public/addToMyList.png)
+
 
