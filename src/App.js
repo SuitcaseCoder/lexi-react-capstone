@@ -14,16 +14,17 @@ import LoginPage from './pages/login-page';
 import SignupPage from './pages/sign-up-page';
 import CreateNewWord from './pages/create-new-word';
 import AllWordsPage from './pages/all-words-page';
-import Layout from './pages/layout';
 import Navbar from './components/navbar';
 
 
 function App() {
+
   return (
+
     <Provider store={store}>
     <Router>
       <Navbar />
-        <Route path="/" component={Layout}></Route>
+          <Route exact path="/" component={LandingPage}></Route>
             <Route path="/login-page" component={LoginPage}></Route>
             <Route path="/addword" component={CreateNewWord}></Route>
             <Route path="/landingpage" component={LandingPage}></Route>

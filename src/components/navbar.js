@@ -40,9 +40,6 @@ class NavBar extends Component {
                     <li>
                         <Link to="mylist" className="navLink">My List</Link>
                     </li>
-                    <li>
-                        <Link to="landingpage" className="navLink">Homepage</Link>
-                    </li>
                 </ul>
                 </nav>
             )

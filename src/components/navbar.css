@@ -29,23 +29,22 @@
   
   .navLink:hover{
     text-decoration: none;
-    color: #aaa;
-    font-size: 24px;
+    color: #7dce94;
   }
 
   @media all and (max-width:480px) {
     nav ul li {
         padding: 3px;
-        font-size: 12px;
+        /* font-size: 11px; */
     }
 
     .navLink {
-      font-size: 14px;
-      padding: 0 5px;
+      font-size: 10px;
+      padding: 0 2px;
     }
 
     .navLink:hover {
-      font-size: 16px;
+      color: #7dce94;
     }
   
   }

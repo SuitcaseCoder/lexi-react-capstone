@@ -1,12 +1,17 @@
 html {
     background: url(background-map-img.jpg) center center fixed;
     background-repeat: no-repeat;
-    /* background-size: cover; */
+    background-size: cover;
 
 }
 
 
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* body > #root > div {
+    height: 100vh;
+  } */
+
+
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
     html  {
         margin: 0 auto;
         padding: 0;

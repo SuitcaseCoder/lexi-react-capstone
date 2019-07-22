@@ -63,7 +63,7 @@ input[type=submit]:hover {
 
 @media all and (max-width:480px) {
     .formComponentContainer {
-        margin-top: 10px;
+        margin-top:45px;
     }
     
     .formTitle{
