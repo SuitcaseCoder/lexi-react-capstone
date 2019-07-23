@@ -1,69 +1,89 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lexi
 
-## Available Scripts
+Create your own lexicon by adding, deleting, or editing words to your lexi list. It's your personalized go-to vocab list. 
 
-In the project directory, you can run:
+ * Backend Github || https://github.com/SuitcaseCoder/lexi-capstone-server
+ * Live Site || https://frozen-forest-94047.herokuapp.com/addword
+ 
+# Motivation
 
-### `npm start`
+Languages is something I've enjoyed learning over the past few years and one thing I've learned is the importance of vocabulary! Lexi is designed not only for foreign language learning, but a go-to vocab for all of your vocabulary needs. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Uses 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Users should be able to try out Lexi using the demo account, provided on the landing page, or create their own account. Once logged in, a use is able to add, edit, and delete words from their personal lexi list. Users have the option of loging out and in using their account.
 
-### `npm test`
+* create account
+* login/logout
+* login using a demo account
+* add words to your list
+* delete words from your list only
+* edit words from your list only
+* view all words from other users 
+* add words from the all words page to your own list
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# Technology
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Front End
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* React
+    * Create React App
+    * React Router
+* Redux
+* HTML5
+* CSS3
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Production
 
-### `npm run eject`
+* Travis Continuous Integration
+* Heroku
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Back End
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Node js
+* Express
+* Javascript
+* MongoDB
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Testing
+* Enzyme
+* Jest
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Authentication
 
-## Learn More
+* Passport.js
+* JWT Token
+* bcrypt
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- - 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Images
 
-### Code Splitting
+## Homepage: 
+![homepage](https://github.com/SuitcaseCoder/lexi-react-capstone/blob/master/public/LexiHomepage.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Signup page
+![signup](/Users/administrator/Documents/Thinkful_Projects/Lexi_React_Capstone/lexi-react-capstone/public/sign_up_page.png)
 
-### Analyzing the Bundle Size
+## My List 
+![listofwords](https://github.com/SuitcaseCoder/lexi-react-capstone/blob/master/public/LexiList.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Add Word
+![listofwords](https://github.com/SuitcaseCoder/lexi-react-capstone/blob/master/public/addWord.png)
 
-### Making a Progressive Web App
+## Add Word to my List
+![listofwords](https://github.com/SuitcaseCoder/lexi-react-capstone/blob/master/public/addToMyList.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- - 
 
-### Advanced Configuration
+# Future Features
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-# lexi-react-capstone
+* Track your learning progress for each individual word. 
+* Specialized for foreign language learners
+    * Include inputs for article (if noun) / part of speech / example sentence/ tense (if verb) / etc. 
+* Add labels to your words 
+    * Example: add 'kitchen' label to your word, if it is somehow related to the kitchen. 
+* Alphabetize your list
+* Multiple lists
+* Quiz using your own list
