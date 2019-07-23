@@ -7,7 +7,6 @@ import {deleteSelectedWord} from '../actions';
 import {editWord} from '../actions';
 
 import EachLetter from '../components/each-letter.js';
-// import LettersList from '../components/letters-list';
 
 import '../components/list-of-words.css';
 import '../components/form.css';
@@ -93,10 +92,6 @@ export class ListOfWords extends React.Component {
 //------------------------------------------
 // create new component. move to new component (handle colors and ). no need to map. 
     handleRedClick(letterId, e){
-        console.log('this is e............', e);
-        console.log('and this is letterId~~~~~~~~~~~~~~~~~`', letterId);
-        console.log('and this is something~~~~~~~~~~~~~~~~~`', e.target);
-
         e.preventDefault();
         this.setState({
             // isRed: if(this.state.isRed === 'white' &&& )

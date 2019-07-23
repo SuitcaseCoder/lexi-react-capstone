@@ -118,13 +118,6 @@ export const deleteSelectedWord = (deletedWordId) => dispatch => {
     .then(res => res.json())
     .then(updatedWords => {
         dispatch(deleteWordSuccess(updatedWords))
-
-        // console.log(res.status);
-        // if (res.status === 204){
-        //     //add deleteSuccess action here.
-        //     console.log(deletedWordId)
-        //     dispatch(deleteWord(deletedWordId));
-        // }
     })
 }
 
@@ -147,11 +140,6 @@ export const signupError = (signupError,signupMessage) => ({
     signupMessage
 });
 
-// export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
-// export const signupSuccess = createdUser => ({
-//     type: SIGNUP_SUCCESS,
-//     createdUser
-// });
 
 export const createNewUser = (username, password, firstName, lastName) => dispatch => {
     fetch(`${API_BASE_URL}/create-user`,{

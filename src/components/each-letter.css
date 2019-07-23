@@ -65,14 +65,14 @@ span{
   padding: 4px;
   margin: 5px;
   outline: 1px solid rgba(61,61,63,0.4);
-  background-color: #f9f8fd;
+  background-color: #7dce94;
   order: 3;
 }
 
 #deleteWordBtn:hover{
   background-color: #3d3d3f;
   color: white;
-  outline: none;
+  /* outline: none; */
 }
 
 #editWordBtn{
@@ -80,7 +80,7 @@ span{
   padding: 4px;
   margin: 5px;
   outline: 1px solid rgba(61,61,63,0.4);
-  background-color: #f9f8fd;
+  background-color: #7dce94;
   order: 4;
 }
 
@@ -95,7 +95,7 @@ span{
   padding: 4px;
   margin: 5px;
   outline: 1px solid rgba(61,61,63,0.4);
-  background-color: #f9f8fd;
+  background-color: #7dce94;
   order: 4;
 }
 
