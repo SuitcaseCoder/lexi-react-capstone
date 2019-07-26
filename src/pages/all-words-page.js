@@ -1,6 +1,6 @@
 //------------- ALL WORDS PAGE ---------------- //
 import React from 'react';
-
+import { Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
 import{fetchAllWords} from '../actions';
 import {addNewWord} from '../actions';
@@ -53,7 +53,9 @@ export class AllWords extends React.Component {
             />
         ));
 
-        return (
+        return !localStorage.loggedIn ? (
+            <Redirect to="login-page" />
+            ) : ( 
             <div className="wordListPageContainer">
             <ul className="wordListContainer">
             <h2 className="wordListTitle">All Words</h2>

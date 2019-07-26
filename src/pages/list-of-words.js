@@ -1,6 +1,6 @@
 //------------- MY LIST PAGE ---------------- //
 import React from 'react';
-
+import { Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
 import{fetchWords} from '../actions';
 import {deleteSelectedWord} from '../actions';
@@ -134,7 +134,9 @@ export class ListOfWords extends React.Component {
 
     
         if(this.state.isEditing === false){
-            return (
+            return !localStorage.loggedIn ? (
+                <Redirect to="login-page" />
+                ) : (
             <div className="wordListPageContainer">
             <ul className="wordListContainer">
             <h2 className="wordListTitle">Your List of Words</h2>
@@ -143,7 +145,9 @@ export class ListOfWords extends React.Component {
             </div> )
 
         } else {
-            return ( 
+            return !localStorage.loggedIn ? (
+                <Redirect to="login-page" />
+                ) : ( 
                 <div className="formComponentContainer">
                     <h2 className="formTitle">Edit</h2>
                     <form onSubmit={this.handleSubmitEditButton} className="formStyle">

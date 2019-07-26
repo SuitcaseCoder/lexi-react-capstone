@@ -2,8 +2,6 @@ import React from 'react';
 import './each-letter.css';
 
 export default function EachLetter(props) {
-    const wordAddedId = props._id;
-    const wordAdded = props.word;
     const defAdded = props.definition;
 
     return (
