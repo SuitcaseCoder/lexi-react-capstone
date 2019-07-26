@@ -43,7 +43,9 @@ class LoginForm extends Component {
     }
 
     render() {
+        console.log(this.props.isLoggedIn, this.props.loginProcess);
         if(this.props.isLoggedIn === true) {
+            console.log("made it to logged in successful");
             return <Redirect to ="/addword" />
         } else if(this.props.loginProcess === 'spinning'){
             return (

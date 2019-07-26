@@ -85,7 +85,7 @@ export const fetchWords = () => (dispatch) => {
         }
     })
         // .then(res => normalizeResponseErrors(res))
-        .then(res => res.json())
+        .then(res => res.json(res))
         .then((words) => dispatch(fetchWordsSuccess(words)))
         .catch(err => {
             console.log(err);
@@ -228,7 +228,8 @@ const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken));
     dispatch(authSuccess(decodedToken.user));
-    saveAuthToken(authToken);
+    window.localStorage.setItem('authToken', authToken);
+    // saveAuthToken(authToken);
 };
 
 
