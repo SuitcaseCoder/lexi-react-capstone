@@ -53,11 +53,7 @@ export class AllWords extends React.Component {
             />
         ));
 
-        return
-        //  !localStorage.loggedIn ? (
-        //     <Redirect to="login-page" />
-        //     ) : 
-            ( 
+        return(
             <div className="wordListPageContainer">
             <ul className="wordListContainer">
             <h2 className="wordListTitle">All Words</h2>

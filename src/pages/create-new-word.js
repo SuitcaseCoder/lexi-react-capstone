@@ -8,13 +8,17 @@ import '../components/create-new-word.css';
 // import { NewWordForm } from './new-word-form.js';
 
 export default function CreateNewWord(){
-    return 
-    // !localStorage.loggedIn ? (
-    //     <Redirect to="login-page" />
-    //     ) : 
-        (
+    return  (
+    !localStorage.loggedIn ? (
+            <Redirect to="login-page" />
+            ) : (        
         <div className="newworddiv">
             <NewWordForm />
         </div>
-    );
+    ))
 }
+
+    // !localStorage.loggedIn ? (
+    //     <Redirect to="login-page" />
+    //     ) : (
+    

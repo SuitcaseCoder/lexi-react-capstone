@@ -134,12 +134,7 @@ export class ListOfWords extends React.Component {
 
     
         if(this.state.isEditing === false){
-            return
-            //  !localStorage.loggedIn ? (
-            //     <Redirect to="login-page" />
-            //     ) : 
-                (
-            <div className="wordListPageContainer">
+            return( <div className="wordListPageContainer">
             <ul className="wordListContainer">
             <h2 className="wordListTitle">Your List of Words</h2>
                 {words}
@@ -147,11 +142,7 @@ export class ListOfWords extends React.Component {
             </div> )
 
         } else {
-            return 
-            // !localStorage.loggedIn ? (
-            //     <Redirect to="login-page" />
-            //     ) : 
-                ( 
+            return (
                 <div className="formComponentContainer">
                     <h2 className="formTitle">Edit</h2>
                     <form onSubmit={this.handleSubmitEditButton} className="formStyle">
