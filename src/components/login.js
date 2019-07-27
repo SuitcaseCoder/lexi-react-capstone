@@ -43,10 +43,12 @@ class LoginForm extends Component {
     }
 
     render() {
-        console.log(this.props.isLoggedIn, this.props.loginProcess);
+        // console.log(window.localStorage.getItem("authToken"));
+        
         if(this.props.isLoggedIn === true) {
-            console.log("made it to logged in successful");
-            return <Redirect to ="/addword" />
+            return (
+                <Redirect to ="/addword" />
+            )
         } else if(this.props.loginProcess === 'spinning'){
             return (
                 <div className="loading">login loading</div>

@@ -24,7 +24,9 @@ class NavBar extends Component {
     }
 
     render() {
-        if(this.props.isLoggedIn === true ){
+        // window.localStorage.getItem('authToken')
+        console.log('logged In status on navbar', this.props.isLoggedIn);
+        if(this.props.isLoggedIn === true){
             return (
                 <nav>
                 <ul className="navBarUl">
@@ -43,7 +45,8 @@ class NavBar extends Component {
                 </ul>
                 </nav>
             )
-        } else if (this.props.isLoggedIn === false ) {
+        } else {
+        // if (!window.localStorage.getItem("authToken")) {
             return (
                 <nav>
                 <ul className="navBarUl">

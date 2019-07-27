@@ -17,7 +17,7 @@ const initialState = {
     signupProcess: 'form',
     signupError: null,
     signupMessage: '',
-    isLoggedIn: false,
+    isLoggedIn: false
 };
 
 export const lexiReducer = (state = initialState, action) => {
@@ -116,6 +116,8 @@ export const lexiReducer = (state = initialState, action) => {
             //updated word/s
         })
     }
+
+console.log('isloggedin reducers....' , state.isLoggedIn);
     return state 
 }
 

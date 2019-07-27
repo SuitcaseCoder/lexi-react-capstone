@@ -10,13 +10,23 @@ import '../components/create-new-word.css';
 // import { NewWordForm } from './new-word-form.js';
 
 class CreateNewWord extends Component {
+
    render(){
-        const result = !this.props.isLoggedIn ? (
-                <Redirect to="login-page" />
-                ) : <div className="newworddiv">
-                <NewWordForm />
-            </div>
-        return result;
+    // !window.localStorage.getItem('authToken')
+    console.log('isLoggedin create-new-word: ...', this.props.isLoggedIn);
+    if(this.props.isLoggedIn === false){
+        return <Redirect to="/login-page" />
+    } else {
+    return(
+        <NewWordForm />
+    )
+    }
+        // const result = this.props.isLoggedIn ? (
+        //         <Redirect to="login-page" />
+        //         ) : <div className="newworddiv">
+        //         <NewWordForm />
+        //     </div>
+        // return result;
     }
 }
 

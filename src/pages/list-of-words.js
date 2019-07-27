@@ -119,6 +119,11 @@ export class ListOfWords extends React.Component {
 //------------------------------------------
 
     render() {
+        console.log(this.props.isLoggedIn);
+
+        if(this.props.isLoggedIn === false){
+            return <Redirect to="/login-page" />
+        }
         const words = this.props.words.map((word,index)=>(
             <EachLetter {...word} key={index} 
             handleDeleteButton={this.handleDeleteButton}  
@@ -131,7 +136,7 @@ export class ListOfWords extends React.Component {
             // isGreen={this.state.isGreen}
             />
         ));
-
+        
     
         if(this.state.isEditing === false){
             return( <div className="wordListPageContainer">
@@ -158,14 +163,15 @@ export class ListOfWords extends React.Component {
                     </form> 
                 </div>
             )
-        } 
+        }
     }
 }
 
 
 const mapStateToProps = state => ({
     words: state.words,
-    learningProgress: state.learningProgress
+    learningProgress: state.learningProgress,
+    isLoggedIn: state.isLoggedIn
 })
 
 export default connect(mapStateToProps)(ListOfWords);

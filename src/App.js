@@ -10,7 +10,7 @@ import LandingPage from './pages/landing-page.js';
 
 import Homepage from './pages/homepage';
 import ListOfWords from './pages/list-of-words';
-import LoginPage from './pages/login-page';
+import Login from './components/login';
 import SignupPage from './pages/sign-up-page';
 import CreateNewWord from './pages/create-new-word';
 import AllWordsPage from './pages/all-words-page';
@@ -25,7 +25,7 @@ function App() {
     <Router>
       <Navbar />
           <Route exact path="/" component={LandingPage}></Route>
-            <Route path="/login-page" component={LoginPage}></Route>
+            <Route path="/login-page" component={Login}></Route>
             <Route path="/addword" component={CreateNewWord}></Route>
             <Route path="/landingpage" component={LandingPage}></Route>
             <Route path="/homepage" component={Homepage}></Route>

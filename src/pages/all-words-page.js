@@ -47,6 +47,7 @@ export class AllWords extends React.Component {
 //------------------------------------------
 
     render() {
+
         const allWords = this.props.allWords.map((word,index)=>(
             <EachWordItem {...word} key={index}  
             handleAddToMyListButton={this.handleAddToMyListButton} 
@@ -61,6 +62,7 @@ export class AllWords extends React.Component {
             </ul>
             </div> 
         )
+        
 
     } 
     
@@ -69,6 +71,7 @@ export class AllWords extends React.Component {
 
 const mapStateToProps = state => ({
     allWords: state.allWords,
+    isLoggedIn: state.isLoggedIn
 })
 
 export default connect(mapStateToProps)(AllWords);

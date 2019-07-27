@@ -26,7 +26,7 @@ export const fetchAllWords = () => (dispatch) => {
     })
         // .then(res => normalizeResponseErrors(res))
         .then(res => res.json(res))
-        .then((allWords) => {console.log('allWords,,,,,', allWords)
+        .then((allWords) => {console.log('allWords...', allWords)
         dispatch(fetchAllWordsSuccess(allWords))
     })
         .catch(err => {
@@ -215,7 +215,7 @@ export const authRequest = () => ({
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const authSuccess = currentUser => ({
     type: AUTH_SUCCESS,
-    currentUser, 
+    currentUser 
 });
 
 export const AUTH_ERROR = 'AUTH_ERROR';
@@ -228,15 +228,15 @@ const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken));
     dispatch(authSuccess(decodedToken.user));
-    window.localStorage.setItem('authToken', authToken);
-    // saveAuthToken(authToken);
+    // window.localStorage.setItem('authToken', authToken);
+    saveAuthToken(authToken);
 };
 
 
 // --------------- LOGIN --------------------
 
 export const login = (username, password) => dispatch => {
-    dispatch(authRequest());
+    // dispatch(authRequest());
     return(
         fetch(`${API_BASE_URL}/api/auth/login`, {
             method: 'POST',
