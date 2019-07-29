@@ -48,21 +48,24 @@ export class AllWords extends React.Component {
 
     render() {
 
-        const allWords = this.props.allWords.map((word,index)=>(
-            <EachWordItem {...word} key={index}  
-            handleAddToMyListButton={this.handleAddToMyListButton} 
-            />
-        ));
-
-        return(
-            <div className="wordListPageContainer">
-            <ul className="wordListContainer">
-            <h2 className="wordListTitle">All Words</h2>
-                {allWords}
-            </ul>
-            </div> 
-        )
-        
+        console.log('from all-words-page isLoggedin =  ', this.props.isLoggedIn);
+        if(this.props.isLoggedIn === false){
+            return <Redirect to="/login-page" />
+        } else {
+            const allWords = this.props.allWords.map((word,index)=>(
+                <EachWordItem {...word} key={index}  
+                handleAddToMyListButton={this.handleAddToMyListButton} 
+                />
+            ));
+            return(
+                <div className="wordListPageContainer">
+                <ul className="wordListContainer">
+                <h2 className="wordListTitle">All Words</h2>
+                    {allWords}
+                </ul>
+                </div> 
+            )
+        }
 
     } 
     

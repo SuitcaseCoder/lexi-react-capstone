@@ -26,7 +26,7 @@ export const fetchAllWords = () => (dispatch) => {
     })
         // .then(res => normalizeResponseErrors(res))
         .then(res => res.json(res))
-        .then((allWords) => {console.log('allWords...', allWords)
+        .then((allWords) => {
         dispatch(fetchAllWordsSuccess(allWords))
     })
         .catch(err => {
